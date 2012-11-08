@@ -8,7 +8,7 @@ int main(int argc, char * argv[])
 				glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH);
 				glutInitWindowSize(640,480);
 				glutInitWindowPosition(100, 100);
-				glutCreateWindow("Squash  - 3D scene");
+				glutCreateWindow("Asteroids!");
 
         // setup window callbacks
        	glutKeyboardFunc(myKeyboard);
@@ -29,7 +29,7 @@ int main(int argc, char * argv[])
         Point3 look(0.0, 0.0, 10.0); 
         Vector3 up(0.0, 1.0, 0.0);
 				cam.set(eye, look, up); // make the initial camera
-				cam.setShape(30.0f, 64.0f/48.0f, 0.5f, 50.0f);
+				cam.setShape(30.0f, 64.0f/48.0f, 0.5f, 100.0f);
 
         //enter main loop
         glutMainLoop();

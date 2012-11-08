@@ -1,4 +1,4 @@
-static GLdouble timeInterval = 0.001; // Determines the time increments, value between 0 and 1
+static GLdouble timeInterval = 0.015; // Determines the time increments, value between 0 and 1
 
 void mySimulation(void){
 	

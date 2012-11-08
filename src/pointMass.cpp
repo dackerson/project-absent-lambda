@@ -39,12 +39,19 @@
 		// Save the world transformation matrix.
 		glPushMatrix();
 		
+
 		// Apply the world transformation matrix for this object.
 		glTranslated(TranslationMatrix[0],
 									TranslationMatrix[1],
 									TranslationMatrix[2]);
 
 		glRotated(rotation, angularVelocity.x, angularVelocity.y, angularVelocity.z);
+
+		/*for(int i = 0; i < 3; i++){
+			printf("%f ", TranslationMatrix[i]);
+		}
+		printf("\n");
+		*/
 
 		// Now render the object with its transformations.
 		//glutSolidSphere(radius, 20, 20);
