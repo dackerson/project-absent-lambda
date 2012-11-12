@@ -1,6 +1,7 @@
 #include <GL/gl.h>
 #include <GL/glu.h>
 #include <GL/glut.h>
+#include <math.h>
 
 // Ball specifications
 const GLdouble MINMASS = 0.10; // Minimal mass is 20g
@@ -23,13 +24,19 @@ const GLdouble COL_MARGIN = 0.04; // if the outside of the ball is within this
 																// distance of a wall we assume there is a collision.
 const GLdouble DRAGCOEFF = -0.008; // The dragcoefficient of the floor
 
+const GLdouble PI = 4*atan(1);
+const int WINDOW_HEIGHT = 480;
+const int WINDOW_WIDTH = 640;
+
 #include "supportClasses.cpp"
 #include "mesh.cpp"
 #include "camera.cpp"
+#include "ship.cpp"
 #include "pointMass.cpp"
 #include "myDisplay.cpp"
 #include "myInit.cpp"
 //#include "handleCollision.cpp"
 #include "mySimulation.cpp"
 #include "myKeyboard.cpp"
+#include "myMouse.cpp"
 #include "main.cpp"

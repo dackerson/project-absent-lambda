@@ -38,12 +38,10 @@ bool myInit(){
 	initialLocation.set(Vector3(0.0, 0.0, 100.0));
 	rock.Location(initialLocation);
 	rock.LinearAcceleration(Vector3(0.0, 0.0, 0.0));
-	rock.LinearVelocity(Vector3(0.0, 0.0, -00.0));
+	rock.LinearVelocity(Vector3(0.0, 0.0, -10.0));
 	rock.Rotation(0.0);
 	rock.AngularVelocity(Vector3(1.00, 1.00, 1.00));
 	
-	ship.makeShip();
-
 	// Initialize textures
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_TEXTURE_2D);

@@ -1,6 +1,4 @@
-
 #include<GL/glut.h>
-#include<math.h>
 #include <iostream>
 #include <fstream>
 //@@@@@@@@@@@@@@@@@@ Camera class @@@@@@@@@@@@@@@@
