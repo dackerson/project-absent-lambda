@@ -1,15 +1,16 @@
 //<<<<<<<<<<<<<<<<<<<<<<<< myKeyboard >>>>>>>>>>>>>>>>>>>>>>
 void myKeyboard(unsigned char key, int x, int y)
 {
+  double moveSpeed = 5.0;
   switch(key)
   {	
 	// slide controls for camera
-	case 'w': cam.slide(0,0,-0.2); break; // slide camera forward
-	case 's':	cam.slide(0,0, 0.2); break; //slide camera back	
-	case 'a': cam.slide(-0.2, 0, 0); break; // slide camera left
-	case 'd': cam.slide(0.2, 0, 0); break; //slide camera right
-	case '+': cam.slide(0, 0.2, 0); break; // slide camera up
-	case '-': cam.slide(0, -0.2, 0); break; //slide camera down
+	case 'w': cam.slide(0,0,-moveSpeed); break; // slide camera forward
+	case 's':	cam.slide(0,0, moveSpeed); break; //slide camera back	
+	case 'a': cam.slide(-moveSpeed, 0, 0); break; // slide camera left
+	case 'd': cam.slide(moveSpeed, 0, 0); break; //slide camera right
+	case '=': cam.slide(0, moveSpeed, 0); break; // slide camera up
+	case '-': cam.slide(0, -moveSpeed, 0); break; //slide camera down
  	// angular motion of the camera
 	case 'Q': cam.roll(-1); break; // roll camera left
 	case 'E': cam.roll(1); break; //roll camera right

@@ -24,6 +24,7 @@ const GLdouble COL_MARGIN = 0.04; // if the outside of the ball is within this
 const GLdouble DRAGCOEFF = -0.008; // The dragcoefficient of the floor
 
 #include "supportClasses.cpp"
+#include "mesh.cpp"
 #include "camera.cpp"
 #include "pointMass.cpp"
 #include "myDisplay.cpp"
