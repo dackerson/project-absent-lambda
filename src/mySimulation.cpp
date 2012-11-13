@@ -12,7 +12,14 @@ void mySimulation(void){
 	}
 				
 	//Update the position of the ball after timeInterval amount of time
-	rock.Update(timeInterval);
+	set<PointMass*>::iterator it;
+	for(it = rocks.begin(); it != rocks.end(); it++){
+		(*it)->Update(timeInterval);
+		//Vector3 v = (*it)->Location;
+		if((*it)->Location().z < 2){
+			rocks.erase(it);
+		}
+	}
 
 	//Call to myDisplay to render the updated scene
 	myDisplay();

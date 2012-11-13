@@ -47,6 +47,7 @@
 
 		glRotated(rotation, angularVelocity.x, angularVelocity.y, angularVelocity.z);
 
+		glScaled(radius, radius, radius);
 		/*for(int i = 0; i < 3; i++){
 			printf("%f ", TranslationMatrix[i]);
 		}

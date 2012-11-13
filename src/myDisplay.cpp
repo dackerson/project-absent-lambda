@@ -1,6 +1,6 @@
 Camera cam; // global camera object
 //SquashCourt court; // the main court
-PointMass rock;
+PointMass* rock;
 Ship ship;
 bool runSimulation = false; // start with simulation stopped
 Vector3 initialForce; // the initial force applied to the ball
@@ -15,7 +15,7 @@ void myDisplay(void)
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glDisable(GL_BLEND);//Disable Blending
    
-	set<int> s;
+	/*set<int> s;
 	for(int i = 0; i < 10; i++){
 		s.insert(i);
 	}
@@ -23,14 +23,15 @@ void myDisplay(void)
 	for(it = s.begin(); it != s.end(); it++){
 		cout << *it << endl;
 	}
-
-	/*set<PointMass*>::iterator it;
-	for(it = rocks.begin(); it != rocks.end(); it++){
-		**it.Render();
-	}
 	*/
 
-	rock.Render();
+	set<PointMass*>::iterator it;
+	for(it = rocks.begin(); it != rocks.end(); it++){
+		(*it)->Render();
+	}
+	
+
+	//rock.Render();
 
 	ship.Render();
 
