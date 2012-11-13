@@ -29,6 +29,10 @@ const GLdouble PI = 4*atan(1);
 const int WINDOW_HEIGHT = 480;
 const int WINDOW_WIDTH = 640;
 
+const int SHIP_PLANE_Z = -10.0;
+
+const int MAX_ROCKS = 10;
+
 #include "supportClasses.cpp"
 #include "mesh.cpp"
 #include "camera.cpp"

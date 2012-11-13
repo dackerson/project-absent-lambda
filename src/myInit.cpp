@@ -29,7 +29,7 @@ void setLight(void)
 bool myInit(){
 	setLight();
 
-	//PointMass rock;
+	/*
 	rock = new PointMass();
 	rock->Mass(1);
 	rock->BoundingSphereRadius(10.0);
@@ -42,6 +42,7 @@ bool myInit(){
 	rock->Rotation(0.0);
 	rock->AngularVelocity(Vector3(1.00, 1.00, 1.00));
 	rocks.insert(rock);
+	*/
 	
 	// Initialize textures
 	glEnable(GL_DEPTH_TEST);

@@ -3,7 +3,7 @@
 Ship::Ship(){
 	health = 9001;
 	location = Point3(0.0, 0.0, 0.0);
-	origin = Point3(6.0, 5.0, -10.0);
+	origin = Point3(6.0, 5.0, SHIP_PLANE_Z);
 }
 
 void Ship::setLocation(int x, int y){
