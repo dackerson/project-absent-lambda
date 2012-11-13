@@ -2,6 +2,7 @@
 #include <GL/glu.h>
 #include <GL/glut.h>
 #include <math.h>
+#include <set>
 
 // Ball specifications
 const GLdouble MINMASS = 0.10; // Minimal mass is 20g

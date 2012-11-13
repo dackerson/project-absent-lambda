@@ -29,10 +29,8 @@ void setLight(void)
 bool myInit(){
 	setLight();
 
-	// Set the mass in kg
-	rock.Mass(BALLMASS);
-	rock.Elasticity(BALLELASTICITY);
-	rock.BoundingSphereRadius(BALLRADIUS);
+	//PointMass rock;
+	rock.Mass(1);
 
 	// Set its starting location
 	initialLocation.set(Vector3(0.0, 0.0, 100.0));
@@ -41,6 +39,7 @@ bool myInit(){
 	rock.LinearVelocity(Vector3(0.0, 0.0, -10.0));
 	rock.Rotation(0.0);
 	rock.AngularVelocity(Vector3(1.00, 1.00, 1.00));
+	//rocks.insert(rock);
 	
 	// Initialize textures
 	glEnable(GL_DEPTH_TEST);
