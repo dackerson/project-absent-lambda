@@ -29,6 +29,8 @@ void setLight(void)
 bool myInit(){
 	setLight();
 
+	srand(time(NULL));
+
 	/*
 	rock = new PointMass();
 	rock->Mass(1);

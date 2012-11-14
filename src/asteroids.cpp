@@ -1,6 +1,9 @@
 #include <GL/gl.h>
 #include <GL/glu.h>
 #include <GL/glut.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 #include <math.h>
 #include <set>
 
@@ -30,6 +33,11 @@ const int WINDOW_HEIGHT = 480;
 const int WINDOW_WIDTH = 640;
 
 const int SHIP_PLANE_Z = -10.0;
+
+const int X_MAX = 15;
+const int X_MIN = -15;
+const int Y_MAX = 15;
+const int Y_MIN = -15;
 
 const int MAX_ROCKS = 10;
 

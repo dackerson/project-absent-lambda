@@ -11,10 +11,10 @@ class Ship{
 		int health;
 		Point3 location;
 		Point3 origin;
-		static const int Y_MAX = 15;
-		static const int Y_MIN = -15;
-		static const int X_MAX = 15;
-		static const int X_MIN = -15;
+		//static const int Y_MAX = 15;
+		//static const int Y_MIN = -15;
+		//static const int X_MAX = 15;
+		//static const int X_MIN = -15;
 	public:
 		Ship();
 		void Location(Point3 locationIn){location = locationIn;}
