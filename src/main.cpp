@@ -31,7 +31,7 @@ int main(int argc, char * argv[])
         Point3 look(0.0, 0.0, 10.0); 
         Vector3 up(0.0, 1.0, 0.0);
 				cam.set(eye, look, up); // make the initial camera
-				cam.setShape(115.0f, 64.0f/48.0f, 0.5f, 100.0f);
+				cam.setShape(90.0f, 64.0f/48.0f, 0.5f, 100.0f);
 
         //enter main loop
         glutMainLoop();

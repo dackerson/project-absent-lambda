@@ -11,10 +11,10 @@ void mySimulation(void){
 			rockSpawnTimer = rockSpawnRate;
 		}
 		else{
-			int size = (rand() % 10) + 1;
+			GLdouble size = ((rand() % 10) + 1) / 5.0;
 			int startPosX = (rand() % (X_MAX - X_MIN)) + X_MIN;
 			int startPosY = (rand() % (Y_MAX - Y_MIN)) + Y_MIN;
-			int startSpeed = -(rand() % 40) - 10;
+			int startSpeed = -10; //-(rand() % 40) - 10;
 
 			rockSpawnTimer = 0.0;
 			rock = new PointMass();
