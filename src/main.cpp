@@ -14,6 +14,7 @@ int main(int argc, char * argv[])
     glutKeyboardFunc(myKeyboard);
     glutMouseFunc(myMouse);
     glutPassiveMotionFunc(myMovedMouse);
+    glutMotionFunc(myMovedMouse);
     glutDisplayFunc(myDisplay);
     glutIdleFunc(mySimulation);
 

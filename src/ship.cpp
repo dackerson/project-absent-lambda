@@ -12,6 +12,12 @@ void Ship::setLocation(int x, int y){
 }
 
 void Ship::fireLaser(set<LaserBeam*>* beams){
+    LaserBeam* beam = new LaserBeam();
+    beam->LocationX(location.x);
+    beam->LocationY(location.y);
+    beam->LocationZ(location.z);
+
+    beams->insert(beam);
 }
 
 void Ship::Render(void){

@@ -14,14 +14,16 @@ const int WINDOW_WIDTH = 640;
 const float NEAR_PLANE = 0.5f;
 const float FAR_PLANE = 100.0f;
 const float SHIP_PLANE_Z = -15.0;
+const float SHIP_GUN_Z = -15.0;
 
 const int X_MAX = 18;
 const int X_MIN = -18;
 const int Y_MAX = 18;
 const int Y_MIN = -18;
 
-const int MAX_ROCKS = 10;
+const int MAX_ROCKS = 100;
 
+const GLdouble LASER_SPEED = 10.0;
 
 #include "supportClasses.cpp"
 #include "camera.cpp"

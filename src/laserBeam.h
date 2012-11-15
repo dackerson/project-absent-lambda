@@ -9,8 +9,7 @@ class LaserBeam{
         // The location of the end of the laser beam
         Vector3 location;
 
-        // A vector such that location-length yields
-        // the location of the beginning of the beam
+        // A direction vector that is the length of the beam
         Vector3 length;
 
         // A velocity vector
@@ -23,6 +22,7 @@ class LaserBeam{
         void LocationY(GLdouble y){location.y = y;}
         void LocationZ(GLdouble z){location.z = z;}
         Vector3 Location(void){return location;}
+        void Update(GLdouble timeInterval);
         void Render(void);
 };
 
