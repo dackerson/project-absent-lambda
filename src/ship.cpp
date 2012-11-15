@@ -11,6 +11,9 @@ void Ship::setLocation(int x, int y){
     LocationY(((y*1.0) * (Y_MAX - Y_MIN) / -WINDOW_HEIGHT) + (0.5 * (Y_MAX - Y_MIN)));
 }
 
+void Ship::fireLaser(set<LaserBeam*>* beams){
+}
+
 void Ship::Render(void){
     glPushMatrix();
 

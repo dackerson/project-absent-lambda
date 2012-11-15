@@ -11,7 +11,9 @@ const GLdouble PI = 4*atan(1);
 const int WINDOW_HEIGHT = 480;
 const int WINDOW_WIDTH = 640;
 
-const int SHIP_PLANE_Z = -15.0;
+const float NEAR_PLANE = 0.5f;
+const float FAR_PLANE = 100.0f;
+const float SHIP_PLANE_Z = -15.0;
 
 const int X_MAX = 18;
 const int X_MIN = -18;
@@ -20,9 +22,11 @@ const int Y_MIN = -18;
 
 const int MAX_ROCKS = 10;
 
+
 #include "supportClasses.cpp"
-#include "mesh.cpp"
 #include "camera.cpp"
+#include "laserBeam.cpp"
+#include "mesh.cpp"
 #include "ship.cpp"
 #include "pointMass.cpp"
 #include "myDisplay.cpp"

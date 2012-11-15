@@ -1,7 +1,6 @@
 #include<GL/glut.h>
 #include<math.h>
-#include <iostream>
-#include <fstream>
+
 using namespace std;
 
 //@@@@@@@@@@@@@@@@@@ Ship class @@@@@@@@@@@@@@@@
@@ -23,6 +22,7 @@ class Ship{
         void LocationZ(GLdouble z){location.z = z;}
         Point3 Location(void){return location;}
         void setLocation(int x, int y);
+        void fireLaser(set<LaserBeam*>* beams);
         void Render(void);
 };
 

@@ -3,6 +3,7 @@ Ship ship;
 Vector3 initialForce; // the initial force applied to the ball
 Vector3 initialLocation; // the initial location of the ball
 set<PointMass*> rocks;
+set<LaserBeam*> beams;
 
 //<<<<<<<<<<<<<<<<<<<<<<< myDisplay >>>>>>>>>>>>>>>>>>>>>>>>>>
 void myDisplay(void)
