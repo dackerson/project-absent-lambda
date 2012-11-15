@@ -1,5 +1,5 @@
 static GLdouble timeInterval = 0.015; // Determines the time increments, value between 0 and 1
-static GLdouble rockSpawnRate = 1.000; //The amount of time between spawning rocks
+static GLdouble rockSpawnRate = 0.500; //The amount of time between spawning rocks
 static GLdouble rockSpawnTimer = rockSpawnRate; //Counts until it is time to spawn another rock
 
 void mySimulation(void){
@@ -17,6 +17,8 @@ void mySimulation(void){
 			int startSpeed = -10; //-(rand() % 40) - 10;
 
 			rockSpawnTimer = 0.0;
+
+			PointMass* rock;
 			rock = new PointMass();
 			rock->Mass(1);
 			rock->BoundingSphereRadius(size);
@@ -41,7 +43,7 @@ void mySimulation(void){
 		start = 0;
 	}
 				
-	//Update the position of the ball after timeInterval amount of time
+	//Update the position of the rocks after timeInterval amount of time
 	set<PointMass*>::iterator it;
 	for(it = rocks.begin(); it != rocks.end(); it++){
 		(*it)->Update(timeInterval);
