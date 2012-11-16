@@ -23,12 +23,13 @@ const int Y_MIN = -18;
 
 const int MAX_ROCKS = 100;
 
-const GLdouble LASER_SPEED = 10.0;
+const GLdouble LASER_LENGTH = 20.0;
+const GLdouble LASER_SPEED = 100.0;
 
 #include "supportClasses.cpp"
 #include "camera.cpp"
-#include "laserBeam.cpp"
 #include "mesh.cpp"
+#include "laserBeam.cpp"
 #include "ship.cpp"
 #include "pointMass.cpp"
 #include "myDisplay.cpp"

@@ -11,9 +11,18 @@ void myDisplay(void)
     glClearColor(0.0f, 0.0f, 0.0f, 0.0f);  // background is black
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-    set<PointMass*>::iterator it;
-    for(it = rocks.begin(); it != rocks.end(); it++){
-        (*it)->Render();
+    {
+        set<PointMass*>::iterator it;
+        for(it = rocks.begin(); it != rocks.end(); it++){
+            (*it)->Render();
+        }
+    }
+
+    {
+        set<LaserBeam*>::iterator it;
+        for(it = beams.begin(); it != beams.end(); it++){
+            (*it)->Render();
+        }
     }
 
     ship.Render();

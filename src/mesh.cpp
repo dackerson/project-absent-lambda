@@ -11,6 +11,21 @@ Mesh::Mesh()
     pt = NULL; norm  =  NULL; face = NULL;
 }
 
+void Mesh:: drawCylinder(){
+    PolyLine P;
+    GLdouble h = 1.0;
+    P.num = 80;
+    
+    GLdouble theta;
+    for(int i = 0; i < P.num; i++){
+        theta = 2 * PI / P.num; 
+        P.pt[i].set(cos(theta * i), sin(theta * i));
+    }
+
+    makePrism(P, h);
+    draw();
+}
+
 void Mesh:: draw() // use OpenGL to draw this mesh
 {
 
@@ -198,7 +213,7 @@ void Mesh::makeSurfaceMesh()
 
 void Mesh::drawrule(int N){
     glLineWidth(3.0);
-    glColor3d(0,0,0);
+    glColor3d(1.0,1.0,1.0);
 
     int i,j;
     double pi = 3.141592653589793 ;

@@ -3,6 +3,8 @@
 Ship::Ship(){
     health = 9001;
     location = Point3(0.0, 0.0, 0.0);
+
+    // Location of the ship's origin
     origin = Point3(6.0, 5.0, SHIP_PLANE_Z);
 }
 
@@ -15,7 +17,7 @@ void Ship::fireLaser(set<LaserBeam*>* beams){
     LaserBeam* beam = new LaserBeam();
     beam->LocationX(location.x);
     beam->LocationY(location.y);
-    beam->LocationZ(location.z);
+    beam->LocationZ(-SHIP_GUN_Z);
 
     beams->insert(beam);
 }

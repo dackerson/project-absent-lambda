@@ -61,7 +61,12 @@ void mySimulation(void){
         for(it = beams.begin(); it != beams.end(); it++){
             (*it)->Update(timeInterval);
             //Vector3 v = (*it)->Location;
-            if((*it)->Location().z < 2){
+            /*printf("(%f, %f, %f)\n",
+                (*it)->Location().x,
+                (*it)->Location().y,
+                (*it)->Location().z);
+            */
+            if(((*it)->Location().minus((*it)->length)).z > FAR_PLANE){
                 beams.erase(it);
             }
         }
