@@ -14,7 +14,7 @@ Mesh::Mesh()
 void Mesh:: drawCylinder(){
     PolyLine P;
     GLdouble h = 1.0;
-    P.num = 80;
+    P.num = 10;
     
     GLdouble theta;
     for(int i = 0; i < P.num; i++){

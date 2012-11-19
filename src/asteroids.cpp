@@ -11,17 +11,18 @@ const GLdouble PI = 4*atan(1);
 const int WINDOW_HEIGHT = 480;
 const int WINDOW_WIDTH = 640;
 
-const float NEAR_PLANE = 0.5f;
-const float FAR_PLANE = 100.0f;
-const float SHIP_PLANE_Z = -15.0;
-const float SHIP_GUN_Z = -15.0;
+const float NEAR_PLANE = 100.0f;
+const float FAR_PLANE = 1000.0f;
+const float SHIP_PLANE_Z = -1.0;
+const float SHIP_GUN_Z = -1.0;
 
-const int X_MAX = 18;
-const int X_MIN = -18;
-const int Y_MAX = 18;
-const int Y_MIN = -18;
+// For mouse movement
+const int X_MAX = 24;
+const int X_MIN = -24;
+const int Y_MAX = 24;
+const int Y_MIN = -24;
 
-const int MAX_ROCKS = 100;
+const int MAX_ROCKS = 200;
 
 const GLdouble LASER_LENGTH = 20.0;
 const GLdouble LASER_SPEED = 100.0;

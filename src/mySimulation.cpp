@@ -11,7 +11,7 @@ void mySimulation(void){
             rockSpawnTimer = rockSpawnRate;
         }
         else{
-            GLdouble size = ((rand() % 10) + 1) / 5.0;
+            GLdouble size = 2.0; //((rand() % 5) + 5) / 1.0;
             int startPosX = (rand() % (X_MAX - X_MIN)) + X_MIN;
             int startPosY = (rand() % (Y_MAX - Y_MIN)) + Y_MIN;
             int startSpeed = -10; //-(rand() % 40) - 10;
