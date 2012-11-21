@@ -11,10 +11,6 @@ void setLight(void)
 
     // set the light source properties (white)
     //GLfloat lightWhite_ambient[] = {0.5, 0.5, 0.5, 1.0f};
-    GLfloat lightWhite_ambient[] = {1, 1, 1, 1.0f};
-    GLfloat lightWhite_diffuse[] = {0.9, 0.9, 0.7, 1.0f};
-    GLfloat lightWhite_specular[] = {1.0, 1.0, 1.0, 1.0f};
-
     glLightfv(GL_LIGHT0, GL_AMBIENT, lightWhite_ambient);
     glLightfv(GL_LIGHT0, GL_DIFFUSE, lightWhite_diffuse);
     glLightfv(GL_LIGHT0, GL_SPECULAR, lightWhite_specular);

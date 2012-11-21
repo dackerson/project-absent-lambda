@@ -41,9 +41,6 @@ void LaserBeam::Render(){
 
     glScaled(0.25, 0.25, lengthMag);
 
-    GLfloat lightRed_ambient[] = {1.0, 0.0, 0.0, 1.0f};
-    GLfloat lightRed_diffuse[] = {1.0, 0.0, 0.0, 1.0f};
-    GLfloat lightRed_specular[] = {0.0, 0.0, 0.0, 1.0f};
     glLightfv(GL_LIGHT0, GL_AMBIENT, lightRed_ambient);
     glLightfv(GL_LIGHT0, GL_DIFFUSE, lightRed_diffuse);
     glLightfv(GL_LIGHT0, GL_SPECULAR, lightRed_specular);
@@ -51,9 +48,6 @@ void LaserBeam::Render(){
     Mesh msh;
     msh.drawCylinder();
 
-    GLfloat lightWhite_ambient[] = {0.5, 0.5, 0.5, 1.0f};
-    GLfloat lightWhite_diffuse[] = {0.9, 0.9, 0.7, 1.0f};
-    GLfloat lightWhite_specular[] = {1.0, 1.0, 1.0, 1.0f};
     glLightfv(GL_LIGHT0, GL_AMBIENT, lightWhite_ambient);
     glLightfv(GL_LIGHT0, GL_DIFFUSE, lightWhite_diffuse);
     glLightfv(GL_LIGHT0, GL_SPECULAR, lightWhite_specular);
