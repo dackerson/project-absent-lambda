@@ -398,6 +398,34 @@ void Mesh:: makeShip(){
     draw();
 
     glPopMatrix();
+    glPushMatrix();
+    
+    glTranslated(6, 0.1, 5);
+    glScaled(0.5, 4, 0.5);
+    glRotatef(90, -1, 0, 0);
+    //main gun
+    drawCylinder();    
+
+    glPopMatrix();
+    
+    glPushMatrix();
+    
+    glTranslated(0.5, 1.1, 1);
+    glScaled(0.5, 2, 0.5);
+    glRotatef(90, -1, 0, 0);
+    //left wing gun
+    drawCylinder();    
+
+    glPopMatrix();
+    glPushMatrix();
+    
+    glTranslated(11.5, 1.1, 1);
+    glScaled(0.5, 2, 0.5);
+    glRotatef(90, -1, 0, 0);
+    //right wing gun
+    drawCylinder();    
+
+    glPopMatrix();
 }
 
 double Mesh:: X(double u, double v)

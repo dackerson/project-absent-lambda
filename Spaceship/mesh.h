@@ -74,7 +74,7 @@ class Mesh{
         void makePrism(PolyLine P, float H);
         
         void makeShip(); //Makes a mesh of the ABS Hansonyard intergalactic space vessel, designed for mining Legore and OT.
-        
+        void drawCylinder();
         double X(double u, double v);  // Parametric definition
         double Y(double u, double v);  //  of a surface in terms
         double Z(double u, double v);  //  of its parametric components
