@@ -12,7 +12,7 @@ class LaserBeam{
         // A velocity vector
         Vector3 velocity;
     public:
-        LaserBeam();//Constructs a Mesozoic class laser beam firing Chicxulub explosive ordinance
+        LaserBeam();
 
         // A direction vector that is the length of the beam
         Vector3 length;

@@ -55,7 +55,7 @@ class Mesh{
         void drawrule(int N);
         void makePrism(PolyLine P, float H);
 
-        void makeShip(); //Creates the mesh for a Cretaceous class fighter
+        void makeShip(); //Makes a mesh of the ABS Hansonyard intergalactic space vessel, designed for mining Legore and OT.
         void drawCylinder();
 
         double X(double u, double v);  // Parametric definition
