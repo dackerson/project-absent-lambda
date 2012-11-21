@@ -9,6 +9,25 @@
 #include <fstream>
 using namespace std;
 
+
+//@@@@@@@@@@@@@@@@@@ Point2 class @@@@@@@@@@@@@@@@
+class Point2{ // for 2D points with real coordinates
+public: 
+	float x,y;
+	void set(float dx, float dy){x = dx; y = dy;}
+	void set(Point2& p){ x = p.x; y = p.y;} 
+	Point2(float xx, float yy){x = xx; y = yy;}
+	Point2(){x = y = 0;}
+};
+
+//<<<<<<<<<<<<<<<<<<<<<< PolyLine >>>>>>>>>>>>>>>>>>>>>>>>>
+class PolyLine{ // a polyline is a num plus an array of points
+public:
+	int num;
+	Point2 pt[80]; //may need larger arrays in some circumstances
+	PolyLine(){num = 0;}
+};
+
 //@@@@@@@@@@@@@@@@@@ VertexID class @@@@@@@@@@@@@@@@
 class VertexID   
 {

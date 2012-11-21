@@ -28,6 +28,22 @@ void Mesh:: draw() // use OpenGL to draw this mesh
   }
 }
 
+void Mesh:: drawCylinder(){
+    float PI = 3.141529;
+    PolyLine P;
+    GLdouble h = 1.0;
+    P.num = 10;
+    
+    GLdouble theta;
+    for(int i = 0; i < P.num; i++){
+        theta = 2 * PI / P.num; 
+        P.pt[i].set(cos(theta * i), sin(theta * i));
+    }
+
+    makePrism(P, h);
+    draw();
+}
+
 int Mesh:: readFile(char * fileName)
 {
   fstream infile;
@@ -346,60 +362,69 @@ void Mesh:: makeShip(){
 
     PolyLine P;
     float H = 2.0;
-    
-    //left wing    
-    P.num = 3;
+
+    //main body
+    P.num = 11;
     P.pt[0].set(0, 1);
     P.pt[1].set(4, 1);
-    P.pt[2].set(4, 5);
+    P.pt[2].set(4, 0);    
+    P.pt[3].set(8, 0);
+    P.pt[4].set(8, 1);
+    P.pt[5].set(12, 1);  
+    P.pt[6].set(8, 5);
+    P.pt[7].set(8, 8);
+    P.pt[8].set(6, 10);
+    P.pt[9].set(4, 8);
+    P.pt[10].set(4, 4);
 
     makePrism(P, H);
     draw();
-    
-    //right wing
-    P.pt[0].set(8, 1);
-    P.pt[1].set(12, 1);
-    P.pt[2].set(8, 5);
-
-    makePrism(P, H);
-    draw();
-    
-    //nosepiece
-    P.pt[0].set(4, 8);
-    P.pt[1].set(8, 8);
-    P.pt[2].set(6, 10);
-
-    makePrism(P, H);
-    draw();
-    
-    //mainbody
-    P.num = 4;
-    P.pt[0].set(4, 0);
-    P.pt[1].set(8, 0);
-    P.pt[2].set(8, 8);
-    P.pt[3].set(4, 8);
-    
-    makePrism(P, H);
-    draw();
-
 
     glPushMatrix();
- 
+
     //glTranslated(5.5, 0.0, 0.0);
     //glRotatef(GLfloat angle, GLfloat x, GLfloat y, GLfloat z);
-    
+
     glTranslated(6.5, 0, 2);
     glRotatef(90, 0, -1, 0);
-    //tail fan  
-    H = 1;  
+    //tail fan
+    H = 1;
     P.num = 3;
     P.pt[0].set(0, 0);
     P.pt[1].set(4, 0);
     P.pt[2].set(0, 3);
 
     makePrism(P, H);
-    
+
     draw();
+
+    glPopMatrix();
+    glPushMatrix();
+    
+    glTranslated(6, 0.1, 5);
+    glScaled(0.5, 4, 0.5);
+    glRotatef(90, -1, 0, 0);
+    //main gun
+    drawCylinder();    
+
+    glPopMatrix();
+    
+    glPushMatrix();
+    
+    glTranslated(0.5, 1.1, 1);
+    glScaled(0.5, 2, 0.5);
+    glRotatef(90, -1, 0, 0);
+    //left wing gun
+    drawCylinder();    
+
+    glPopMatrix();
+    glPushMatrix();
+    
+    glTranslated(11.5, 1.1, 1);
+    glScaled(0.5, 2, 0.5);
+    glRotatef(90, -1, 0, 0);
+    //right wing gun
+    drawCylinder();    
 
     glPopMatrix();
 	
