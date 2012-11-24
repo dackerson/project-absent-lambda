@@ -29,12 +29,12 @@ int main(int argc, char * argv[])
     myInit();
 
     //Set up the viewport and initial camera
-    glViewport(0, 0, 640, 480);
+    glViewport(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
     Point3 eye(0.0, 0.0, 0.0); 
-    Point3 look(0.0, 0.0, 10.0); 
+    Point3 look(0.0, 0.0, 1.0); 
     Vector3 up(0.0, 1.0, 0.0);
     cam.set(eye, look, up); // make the initial camera
-    cam.setShape(60.0f, 64.0f/48.0f, NEAR_PLANE, FAR_PLANE);
+    cam.setShape(VIEW_ANGLE, 64.0f/48.0f, NEAR_PLANE, FAR_PLANE);
 
     //enter main loop
     glutMainLoop();

@@ -11,6 +11,7 @@ class Ship{
 		int health;
 		Point3 location;
 		Point3 origin;
+        double gunHeight;
 	public:
 		Ship();
 		void Location(Point3 locationIn){location = locationIn;}

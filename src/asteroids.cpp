@@ -11,9 +11,11 @@ const GLdouble PI = 4*atan(1);
 const int WINDOW_HEIGHT = 480;
 const int WINDOW_WIDTH = 640;
 
+const float VIEW_ANGLE = 25.0;
 const float NEAR_PLANE = 0.5f;
 const float FAR_PLANE = 1000.0f;
-const float SHIP_PLANE_Z = -50.0;
+
+const float SHIP_PLANE_Z = -75.0;
 const float SHIP_GUN_Z = SHIP_PLANE_Z;
 
 // For mouse movement
@@ -31,8 +33,8 @@ const GLfloat lightWhite_ambient[] = {1.0, 1.0, 1.0, 1.0f};
 const GLfloat lightWhite_diffuse[] = {1.0, 1.0, 1.0, 1.0f};
 const GLfloat lightWhite_specular[] = {1.0, 1.0, 1.0, 1.0f};
 
-const GLfloat lightRed_ambient[] = {1.0, 0.0, 0.0, 1.0f};
-const GLfloat lightRed_diffuse[] = {1.0, 0.0, 0.0, 1.0f};
+const GLfloat lightRed_ambient[] = {9.0, 0.0, 0.0, 1.0f};
+const GLfloat lightRed_diffuse[] = {0.0, 0.0, 0.0, 1.0f};
 const GLfloat lightRed_specular[] = {0.0, 0.0, 0.0, 1.0f};
 
 #include "supportClasses.cpp"
