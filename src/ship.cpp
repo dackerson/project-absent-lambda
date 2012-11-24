@@ -5,7 +5,7 @@ Ship::Ship(){
     location = Point3(0.0, 0.0, 0.0);
 
     // Location of the ship's origin
-    origin = Point3(6.0, 5.0, SHIP_PLANE_Z);
+    origin = Point3(6.0, 0.0, SHIP_PLANE_Z);
 }
 
 void Ship::setLocation(int x, int y){

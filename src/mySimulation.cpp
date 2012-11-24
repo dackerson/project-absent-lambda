@@ -1,5 +1,5 @@
 static GLdouble timeInterval = 0.015; // Determines the time increments, value between 0 and 1
-static GLdouble rockSpawnRate = 0.250; //The amount of time between spawning rocks
+static GLdouble rockSpawnRate = 1.0; //0.350; //The amount of time between spawning rocks
 static GLdouble rockSpawnTimer = rockSpawnRate; //Counts until it is time to spawn another rock
 
 void mySimulation(void){
@@ -24,7 +24,8 @@ void mySimulation(void){
             rock->BoundingSphereRadius(size);
 
             // Set its starting location
-            initialLocation.set(Vector3(startPosX, startPosY, 100.0));
+            //initialLocation.set(Vector3(startPosX, startPosY, 100.0));
+            initialLocation.set(Vector3(0.0, 0.0, 50.0));
             rock->Location(initialLocation);
             rock->LinearAcceleration(Vector3(0.0, 0.0, 0.0));
             rock->LinearVelocity(Vector3(0.0, 0.0, startSpeed));
