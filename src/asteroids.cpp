@@ -13,18 +13,18 @@ const int WINDOW_WIDTH = 640;
 
 const float NEAR_PLANE = 0.5f;
 const float FAR_PLANE = 1000.0f;
-const float SHIP_PLANE_Z = -15.0;
-const float SHIP_GUN_Z = -15.0;
+const float SHIP_PLANE_Z = -50.0;
+const float SHIP_GUN_Z = SHIP_PLANE_Z;
 
 const float SHIP_HEIGHT = 6.0;
 const float SHIP_WIDTH = 12.0;
 const float SHIP_LENGTH = 10.0;
 
 // For mouse movement
-const int X_MAX = 24;
-const int X_MIN = -24;
-const int Y_MAX = 24;
-const int Y_MIN = -24;
+const int X_MAX = 35;
+const int X_MIN = -35;
+const int Y_MAX = 40;
+const int Y_MIN = -15;
 
 const int MAX_ROCKS = 100;
 
@@ -32,7 +32,7 @@ long ROCK_COUNT = 0;
 
 const GLdouble LASER_LENGTH = 20.0;
 const double LASER_RADIUS = 0.125;
-const GLdouble LASER_SPEED = 100.0;
+const GLdouble LASER_SPEED = 150.0;
 
 long LASER_BEAM_NUMBER = 0;
 
