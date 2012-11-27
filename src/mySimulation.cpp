@@ -1,7 +1,8 @@
 static GLdouble timeInterval = 0.015; // Determines the time increments, value between 0 and 1
 static GLdouble rockSpawnRate = 0.350; //The amount of time between spawning rocks
 static GLdouble rockSpawnTimer = rockSpawnRate; //Counts until it is time to spawn another rock
-static ISoundEngine* engine = createIrrKlangDevice();
+static ISoundEngine* backgroundTrackSoundEngine = createIrrKlangDevice();
+static ISoundEngine* effectSoundEngine = createIrrKlangDevice();
 static int start = 1;
 
 void mySimulation(void){
@@ -42,7 +43,7 @@ void mySimulation(void){
     //Little trick to make sure the scene is rendered
     // without having to move the camera
     if(start){
-		engine->play2D("../media/getout.ogg", true);
+		backgroundTrackSoundEngine->play2D("../media/getout.ogg", true);
         cam.slide(0,0,-0.001);
         glutPostRedisplay();
         start = 0;
@@ -78,6 +79,7 @@ void mySimulation(void){
 			if((rockFront <= -SHIP_PLANE_Z + SHIP_LENGTH) && (rockBack > -SHIP_PLANE_Z)){
 				if((rockLeft < shipRight) && (rockRight > shipLeft) && (shipTop > rockBottom) && (shipBottom < rockTop)){
 					cout << "Colision from Rock: " << (*it)->rockNumber << endl;
+					effectSoundEngine->play2D("../media/explosion.wav");
 					rocks.erase(it);
 				}
 			}
@@ -124,6 +126,7 @@ void mySimulation(void){
 				if((laserBack > rockFront) && (laserFront < rockBack)){
 					if((rockLeft < laserRight) && (rockRight > laserLeft) && (laserTop > rockBottom) && (laserBottom < rockTop)){
 						cout << "Laser: " << (*it)->laserBeamNumber << " collides with rock: " << (*itRock)->rockNumber << endl;
+						effectSoundEngine->play2D("../media/explosion.wav");
 						rocks.erase(itRock);
 						beams.erase(it);
 					}
