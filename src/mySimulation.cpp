@@ -43,7 +43,8 @@ void mySimulation(void){
     //Little trick to make sure the scene is rendered
     // without having to move the camera
     if(start){
-		backgroundTrackSoundEngine->play2D("../media/getout.ogg", true);
+		backgroundTrackSoundEngine->play2D("../media/TheForestAwakes.ogg", true);
+		//backgroundTrackSoundEngine->play2D("../media/getout.ogg", true);
         cam.slide(0,0,-0.001);
         glutPostRedisplay();
         start = 0;
