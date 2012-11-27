@@ -3,9 +3,14 @@
 #include <GL/glut.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdio.h>
+#include "../include/irrKlang.h"
+#include "../common/conio.h"
 #include <time.h>
 #include <math.h>
 #include <set>
+using namespace irrklang;
+#pragma comment(lib, "irrKlang.lib") // link with irrKlang.dll
 
 const GLdouble PI = 4*atan(1);
 const int WINDOW_HEIGHT = 480;

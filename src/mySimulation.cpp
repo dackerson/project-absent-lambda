@@ -1,6 +1,8 @@
 static GLdouble timeInterval = 0.015; // Determines the time increments, value between 0 and 1
 static GLdouble rockSpawnRate = 0.350; //The amount of time between spawning rocks
 static GLdouble rockSpawnTimer = rockSpawnRate; //Counts until it is time to spawn another rock
+static ISoundEngine* engine = createIrrKlangDevice();
+static int start = 1;
 
 void mySimulation(void){
 
@@ -11,7 +13,7 @@ void mySimulation(void){
             rockSpawnTimer = rockSpawnRate;
         }
         else{
-            GLdouble size = 2.0; //((rand() % 5) + 5) / 1.0;
+            GLdouble size = 5.0; //((rand() % 5) + 5) / 1.0;
             int startPosX = (rand() % (X_MAX - X_MIN)) + X_MIN;
             int startPosY = (rand() % (Y_MAX - Y_MIN)) + Y_MIN;
             int startSpeed = -10; //-(rand() % 40) - 10;
@@ -39,8 +41,8 @@ void mySimulation(void){
 
     //Little trick to make sure the scene is rendered
     // without having to move the camera
-    static int start = 1;
     if(start){
+		engine->play2D("../media/getout.ogg", true);
         cam.slide(0,0,-0.001);
         glutPostRedisplay();
         start = 0;

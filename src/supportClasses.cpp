@@ -89,3 +89,24 @@ class Vector3{
         float dot(Vector3 b) // return this dotted with b
         {return x * b.x + y * b.y + z * b.z;}
 };
+
+//<<<<<<<<<<<<<<<<<<<<<< PolyLinmakePrisme >>>>>>>>>>>>>>>>>>>>>>>>>
+class SoundEngine{ // a polyline is a num plus an array of points
+    public:
+		
+        SoundEngine(){}
+		ISoundEngine* getSoundEngine()
+		{
+			ISoundEngine* soundEngine = createIrrKlangDevice();
+
+			if (!soundEngine)
+			{
+				cout << "ERROR: Could not shart sound engine!" << endl;
+				return soundEngine; // error starting up the engine
+			}
+
+			return soundEngine;
+		}
+	private:
+		
+};
