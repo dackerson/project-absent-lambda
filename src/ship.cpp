@@ -17,6 +17,8 @@ void Ship::setLocation(int x, int y){
 
 void Ship::fireLaser(set<LaserBeam*>* beams){
     LaserBeam* beam = new LaserBeam();
+	//cout << "Creating Laser Beam: " << LASER_BEAM_NUMBER << endl;
+	beam->laserBeamNumber = LASER_BEAM_NUMBER++;
     beam->LocationX(location.x);
     beam->LocationY(location.y + gunHeight);
     beam->LocationZ(-SHIP_GUN_Z);

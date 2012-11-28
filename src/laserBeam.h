@@ -17,6 +17,8 @@ class LaserBeam{
         // A direction vector that is the length of the beam
         Vector3 length;
 
+		long laserBeamNumber;
+
         void Location(Vector3 locationIn){location = locationIn;}
         void LocationX(GLdouble x){location.x = x;}
         void LocationY(GLdouble y){location.y = y;}

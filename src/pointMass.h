@@ -19,6 +19,7 @@ class PointMass{
         PointMass();
 
         //All the basic set and get methods
+        long rockNumber;
         void Mass(GLdouble massValue){mass = massValue;}
         GLdouble Mass(void){return mass;}
         void Location(Vector3 locationCenterOfMass){centerOfMassLocation = locationCenterOfMass;}

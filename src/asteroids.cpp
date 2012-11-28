@@ -18,16 +18,25 @@ const float FAR_PLANE = 1000.0f;
 const float SHIP_PLANE_Z = -75.0;
 const float SHIP_GUN_Z = SHIP_PLANE_Z;
 
+const float SHIP_HEIGHT = 6.0;
+const float SHIP_WIDTH = 12.0;
+const float SHIP_LENGTH = 10.0;
+
 // For mouse movement
 const int X_MAX = 35;
 const int X_MIN = -35;
 const int Y_MAX = 40;
 const int Y_MIN = -15;
 
-const int MAX_ROCKS = 200;
+const int MAX_ROCKS = 100;
+
+long ROCK_COUNT = 0;
 
 const GLdouble LASER_LENGTH = 20.0;
+const double LASER_RADIUS = 0.125;
 const GLdouble LASER_SPEED = 150.0;
+
+long LASER_BEAM_NUMBER = 0;
 
 const GLfloat lightWhite_ambient[] = {1.0, 1.0, 1.0, 1.0f};
 const GLfloat lightWhite_diffuse[] = {1.0, 1.0, 1.0, 1.0f};
