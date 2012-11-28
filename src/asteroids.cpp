@@ -12,7 +12,7 @@
 using namespace irrklang;
 #pragma comment(lib, "irrKlang.lib") // link with irrKlang.dll
 
-const int DEBUG = 0;
+const int DEBUG = 1;
 
 const GLdouble PI = 4*atan(1);
 const int WINDOW_HEIGHT = 600;
