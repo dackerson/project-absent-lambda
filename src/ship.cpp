@@ -1,6 +1,6 @@
 #include "ship.h"
 
-ISoundEngine* laserSoundEngine = createIrrKlangDevice();
+SoundEngine soundEngineLaser = SoundEngine();
 
 Ship::Ship(){
     health = 9001;
@@ -23,36 +23,42 @@ void Ship::setLocation(int x, int y){
 
 void Ship::fireLeftLaser(set<LaserBeam*>* beams){
     LaserBeam* beam = new LaserBeam(0);
-	//cout << "Creating Laser Beam: " << LASER_BEAM_NUMBER << endl;
+	if(DEBUG == 1){
+		cout << "Creating Laser Beam: " << LASER_BEAM_NUMBER << endl;
+	}
 	beam->laserBeamNumber = LASER_BEAM_NUMBER++;
     beam->LocationX(location.x + gunLeftXOffset);
     beam->LocationY(location.y + gunLeftYOffset);
     beam->LocationZ(-SHIP_GUN_Z - 1.0);
-	laserSoundEngine->play2D("../media/laser-060-medium-dual-voice.ogg");
+	soundEngineLaser.playLaserSound();
 
     beams->insert(beam);
 }
 
 void Ship::fireCenterLaser(set<LaserBeam*>* beams){
     LaserBeam* beam = new LaserBeam(1);
-	//cout << "Creating Laser Beam: " << LASER_BEAM_NUMBER << endl;
+	if(DEBUG == 1){
+		cout << "Creating Laser Beam: " << LASER_BEAM_NUMBER << endl;
+	}
 	beam->laserBeamNumber = LASER_BEAM_NUMBER++;
     beam->LocationX(location.x);
     beam->LocationY(location.y + gunHeight);
     beam->LocationZ(-SHIP_GUN_Z);
-	laserSoundEngine->play2D("../media/laser-060-medium-dual-voice.ogg");
+	soundEngineLaser.playLaserSound();
 
     beams->insert(beam);
 }
 
 void Ship::fireRightLaser(set<LaserBeam*>* beams){
     LaserBeam* beam = new LaserBeam(0);
-	//cout << "Creating Laser Beam: " << LASER_BEAM_NUMBER << endl;
+	if(DEBUG == 1){
+		cout << "Creating Laser Beam: " << LASER_BEAM_NUMBER << endl;
+	}
 	beam->laserBeamNumber = LASER_BEAM_NUMBER++;
     beam->LocationX(location.x + gunRightXOffset);
     beam->LocationY(location.y + gunRightYOffset);
     beam->LocationZ(-SHIP_GUN_Z - 1.0);
-	laserSoundEngine->play2D("../media/laser-060-medium-dual-voice.ogg");
+	soundEngineLaser.playLaserSound();
 
     beams->insert(beam);
 }

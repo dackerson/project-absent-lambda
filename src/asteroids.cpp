@@ -12,6 +12,8 @@
 using namespace irrklang;
 #pragma comment(lib, "irrKlang.lib") // link with irrKlang.dll
 
+const int DEBUG = 0;
+
 const GLdouble PI = 4*atan(1);
 const int WINDOW_HEIGHT = 480;
 const int WINDOW_WIDTH = 640;
@@ -51,6 +53,7 @@ const GLfloat lightRed_ambient[] = {9.0, 0.0, 0.0, 1.0f};
 const GLfloat lightRed_diffuse[] = {0.0, 0.0, 0.0, 1.0f};
 const GLfloat lightRed_specular[] = {0.0, 0.0, 0.0, 1.0f};
 
+#include "SoundEngine.cpp"
 #include "supportClasses.cpp"
 #include "camera.cpp"
 #include "mesh.cpp"

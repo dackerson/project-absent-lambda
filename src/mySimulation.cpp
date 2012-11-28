@@ -1,8 +1,7 @@
 static GLdouble timeInterval = 0.015; // Determines the time increments, value between 0 and 1
 static GLdouble rockSpawnRate = 0.2; //0.350; //The amount of time between spawning rocks
 static GLdouble rockSpawnTimer = rockSpawnRate; //Counts until it is time to spawn another rock
-static ISoundEngine* backgroundTrackSoundEngine = createIrrKlangDevice();
-static ISoundEngine* effectSoundEngine = createIrrKlangDevice();
+SoundEngine soundEngine = SoundEngine();
 static int start = 1;
 
 void mySimulation(void){
@@ -23,7 +22,9 @@ void mySimulation(void){
 
             PointMass* rock;
             rock = new PointMass();
-			//cout << "Creating Rock: " << ROCK_COUNT << endl;
+			if(DEBUG == 1){
+				cout << "Creating Rock: " << ROCK_COUNT << endl;
+			}
 			rock->rockNumber = ROCK_COUNT++;
             rock->Mass(1);
             rock->BoundingSphereRadius(size);
@@ -43,8 +44,7 @@ void mySimulation(void){
     //Little trick to make sure the scene is rendered
     // without having to move the camera
     if(start){
-		backgroundTrackSoundEngine->play2D("../media/TheForestAwakes.ogg", true);
-		//backgroundTrackSoundEngine->play2D("../media/getout.ogg", true);
+		soundEngine.startBackgroundTrack();
         cam.slide(0,0,-0.001);
         glutPostRedisplay();
         start = 0;
@@ -79,14 +79,18 @@ void mySimulation(void){
 
 			if((rockFront <= -SHIP_PLANE_Z + SHIP_LENGTH) && (rockBack > -SHIP_PLANE_Z)){
 				if((rockLeft < shipRight) && (rockRight > shipLeft) && (shipTop > rockBottom) && (shipBottom < rockTop)){
-					cout << "Colision from Rock: " << (*it)->rockNumber << endl;
-					effectSoundEngine->play2D("../media/explosion.wav");
+					if(DEBUG == 1){
+						cout << "DAMAGE: Colision from Rock: " << (*it)->rockNumber << "!!!!!!!!" << endl;
+					}
+					soundEngine.playExplosionSound();
 					rocks.erase(it);
 				}
 			}
 
             if((*it)->Location().z < 2){
-				cout << "Erasing Rock: " << (*it)->rockNumber << endl;
+				if(DEBUG == 1){
+					cout << "Erasing Rock: " << (*it)->rockNumber << endl;
+				}
                 rocks.erase(it);
             }
         }
@@ -126,8 +130,10 @@ void mySimulation(void){
 
 				if((laserBack > rockFront) && (laserFront < rockBack)){
 					if((rockLeft < laserRight) && (rockRight > laserLeft) && (laserTop > rockBottom) && (laserBottom < rockTop)){
-						cout << "Laser: " << (*it)->laserBeamNumber << " collides with rock: " << (*itRock)->rockNumber << endl;
-						effectSoundEngine->play2D("../media/explosion.wav");
+						if(DEBUG == 1){
+							cout << "Laser: " << (*it)->laserBeamNumber << " collides with rock: " << (*itRock)->rockNumber << endl;
+						}
+						soundEngine.playExplosionSound();
 						rocks.erase(itRock);
 						beams.erase(it);
 					}
@@ -135,7 +141,9 @@ void mySimulation(void){
 			}
 
             if(((*it)->Location().minus((*it)->length)).z > FAR_PLANE){
-				cout << "Erasing Laser Beam: "<< (*it)->laserBeamNumber << endl;
+				if(DEBUG == 1){
+					cout << "Erasing Laser Beam: "<< (*it)->laserBeamNumber << endl;
+				}
                 beams.erase(it);
             }
         }
