@@ -8,8 +8,12 @@ Ship::Ship(){
 
     // Location of the ship's origin
     origin = Point3(6.0, 0.0, SHIP_PLANE_Z);
-
+	
     gunHeight = 5.0;
+	gunLeftXOffset = 5.0;
+	gunRightXOffset = -5.0;
+	gunLeftYOffset = 1.0;
+	gunRightYOffset = 1.0;
 }
 
 void Ship::setLocation(int x, int y){
@@ -17,13 +21,37 @@ void Ship::setLocation(int x, int y){
     LocationY(((y*1.0) * (Y_MAX - Y_MIN) / -WINDOW_HEIGHT) + (0.5 * (Y_MAX - Y_MIN)));
 }
 
-void Ship::fireLaser(set<LaserBeam*>* beams){
+void Ship::fireLeftLaser(set<LaserBeam*>* beams){
+    LaserBeam* beam = new LaserBeam();
+	//cout << "Creating Laser Beam: " << LASER_BEAM_NUMBER << endl;
+	beam->laserBeamNumber = LASER_BEAM_NUMBER++;
+    beam->LocationX(location.x + gunLeftXOffset);
+    beam->LocationY(location.y + gunLeftYOffset);
+    beam->LocationZ(-SHIP_GUN_Z - 1.0);
+	laserSoundEngine->play2D("../media/laser-060-medium-dual-voice.ogg");
+
+    beams->insert(beam);
+}
+
+void Ship::fireCenterLaser(set<LaserBeam*>* beams){
     LaserBeam* beam = new LaserBeam();
 	//cout << "Creating Laser Beam: " << LASER_BEAM_NUMBER << endl;
 	beam->laserBeamNumber = LASER_BEAM_NUMBER++;
     beam->LocationX(location.x);
     beam->LocationY(location.y + gunHeight);
     beam->LocationZ(-SHIP_GUN_Z);
+	laserSoundEngine->play2D("../media/laser-060-medium-dual-voice.ogg");
+
+    beams->insert(beam);
+}
+
+void Ship::fireRightLaser(set<LaserBeam*>* beams){
+    LaserBeam* beam = new LaserBeam();
+	//cout << "Creating Laser Beam: " << LASER_BEAM_NUMBER << endl;
+	beam->laserBeamNumber = LASER_BEAM_NUMBER++;
+    beam->LocationX(location.x + gunRightXOffset);
+    beam->LocationY(location.y + gunRightYOffset);
+    beam->LocationZ(-SHIP_GUN_Z - 1.0);
 	laserSoundEngine->play2D("../media/laser-060-medium-dual-voice.ogg");
 
     beams->insert(beam);

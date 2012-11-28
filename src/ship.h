@@ -12,6 +12,10 @@ class Ship{
 		Point3 location;
 		Point3 origin;
         double gunHeight;
+		double gunLeftXOffset;
+		double gunRightXOffset;
+		double gunLeftYOffset;
+		double gunRightYOffset;
 	public:
 		Ship();
 		void Location(Point3 locationIn){location = locationIn;}
@@ -20,7 +24,9 @@ class Ship{
 		void LocationZ(GLdouble z){location.z = z;}
 		Point3 Location(void){return location;}
 		void setLocation(int x, int y);
-        void fireLaser(set<LaserBeam*>* beam);
+        void fireLeftLaser(set<LaserBeam*>* beam);
+		void fireCenterLaser(set<LaserBeam*>* beam);
+		void fireRightLaser(set<LaserBeam*>* beam);
 		void Render(void);
 };
 			
