@@ -6,7 +6,7 @@ int main(int argc, char * argv[])
     // initialize GLUT
     glutInit( &argc, argv );
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH);
-    glutInitWindowSize(640,480);
+    glutInitWindowSize(WINDOW_WIDTH,WINDOW_HEIGHT);
     glutInitWindowPosition(100, 100);
     glutCreateWindow("Asteroids!");
 
@@ -34,7 +34,7 @@ int main(int argc, char * argv[])
     Point3 look(0.0, 0.0, 1.0); 
     Vector3 up(0.0, 1.0, 0.0);
     cam.set(eye, look, up); // make the initial camera
-    cam.setShape(VIEW_ANGLE, 64.0f/48.0f, NEAR_PLANE, FAR_PLANE);
+    cam.setShape(VIEW_ANGLE, (WINDOW_WIDTH * 1.0) / WINDOW_HEIGHT, NEAR_PLANE, FAR_PLANE);
 
     //enter main loop
     glutMainLoop();

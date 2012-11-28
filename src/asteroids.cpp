@@ -15,8 +15,8 @@ using namespace irrklang;
 const int DEBUG = 0;
 
 const GLdouble PI = 4*atan(1);
-const int WINDOW_HEIGHT = 480;
-const int WINDOW_WIDTH = 640;
+const int WINDOW_HEIGHT = 600;
+const int WINDOW_WIDTH = 800;
 
 const float VIEW_ANGLE = 25.0;
 const float NEAR_PLANE = 0.5f;
@@ -30,10 +30,10 @@ const float SHIP_WIDTH = 12.0;
 const float SHIP_LENGTH = 10.0;
 
 // For mouse movement
-const int X_MAX = 35;
-const int X_MIN = -35;
-const int Y_MAX = 40;
-const int Y_MIN = -15;
+const int X_MAX = 18;
+const int X_MIN = -18;
+const int Y_MAX = 18;
+const int Y_MIN = -18;
 
 const int MAX_ROCKS = 100;
 
