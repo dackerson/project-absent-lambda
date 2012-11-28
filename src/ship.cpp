@@ -22,7 +22,7 @@ void Ship::setLocation(int x, int y){
 }
 
 void Ship::fireLeftLaser(set<LaserBeam*>* beams){
-    LaserBeam* beam = new LaserBeam();
+    LaserBeam* beam = new LaserBeam(0);
 	//cout << "Creating Laser Beam: " << LASER_BEAM_NUMBER << endl;
 	beam->laserBeamNumber = LASER_BEAM_NUMBER++;
     beam->LocationX(location.x + gunLeftXOffset);
@@ -34,7 +34,7 @@ void Ship::fireLeftLaser(set<LaserBeam*>* beams){
 }
 
 void Ship::fireCenterLaser(set<LaserBeam*>* beams){
-    LaserBeam* beam = new LaserBeam();
+    LaserBeam* beam = new LaserBeam(1);
 	//cout << "Creating Laser Beam: " << LASER_BEAM_NUMBER << endl;
 	beam->laserBeamNumber = LASER_BEAM_NUMBER++;
     beam->LocationX(location.x);
@@ -46,7 +46,7 @@ void Ship::fireCenterLaser(set<LaserBeam*>* beams){
 }
 
 void Ship::fireRightLaser(set<LaserBeam*>* beams){
-    LaserBeam* beam = new LaserBeam();
+    LaserBeam* beam = new LaserBeam(0);
 	//cout << "Creating Laser Beam: " << LASER_BEAM_NUMBER << endl;
 	beam->laserBeamNumber = LASER_BEAM_NUMBER++;
     beam->LocationX(location.x + gunRightXOffset);

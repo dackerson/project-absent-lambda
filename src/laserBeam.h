@@ -12,13 +12,13 @@ class LaserBeam{
         // A velocity vector
         Vector3 velocity;
     public:
-        LaserBeam();//Constructs a Mesozoic class laser beam firing Chicxulub explosive ordinance
+        LaserBeam(int isCenterCannon);//Constructs a Mesozoic class laser beam firing Chicxulub explosive ordinance
 
         // A direction vector that is the length of the beam
         Vector3 length;
 
 		long laserBeamNumber;
-
+		int centerCannon;
         void Location(Vector3 locationIn){location = locationIn;}
         void LocationX(GLdouble x){location.x = x;}
         void LocationY(GLdouble y){location.y = y;}

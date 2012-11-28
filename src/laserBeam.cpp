@@ -1,6 +1,6 @@
 #include "laserBeam.h"
 
-LaserBeam::LaserBeam(){
+LaserBeam::LaserBeam(int isCenterCannon){
     Vector3 tmp = Vector3(0.0, 0.0, LASER_LENGTH);
     length.set(tmp);
 
@@ -8,6 +8,7 @@ LaserBeam::LaserBeam(){
     velocity.set(length);
     velocity.normalize();
     velocity = velocity.multipliedby(speed);
+	centerCannon = isCenterCannon;
 }
 
 void LaserBeam::Update(GLdouble timeInterval){
@@ -38,8 +39,14 @@ void LaserBeam::Render(){
         Vector3 angleVec = length.cross(zAxis);
         glRotated(angle, angleVec.x, angleVec.y, angleVec.z);
     }
+	
+	double scalingFactor = 0.25;	
 
-    glScaled(0.25, 0.25, lengthMag);
+	if(centerCannon == 1){
+		scalingFactor = 0.45;
+	}
+
+    glScaled(scalingFactor, scalingFactor, lengthMag);
 
     glLightfv(GL_LIGHT0, GL_AMBIENT, lightRed_ambient);
     glLightfv(GL_LIGHT0, GL_DIFFUSE, lightRed_diffuse);
