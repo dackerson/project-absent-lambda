@@ -48,7 +48,8 @@ void PointMass:: Render(void){
     glScaled(radius, radius, radius);
 
     // Now render the object with its transformations.
-    glutSolidIcosahedron();
+    //glutSolidIcosahedron();
+    glutSolidSphere(1.0, 5, 4);
 
     // Restore the world transformation matrix.
     glPopMatrix();

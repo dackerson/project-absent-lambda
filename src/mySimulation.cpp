@@ -1,5 +1,5 @@
 static GLdouble timeInterval = 0.015; // Determines the time increments, value between 0 and 1
-static GLdouble rockSpawnRate = 0.2; //0.350; //The amount of time between spawning rocks
+static GLdouble rockSpawnRate = 0.35; //0.350; //The amount of time between spawning rocks
 static GLdouble rockSpawnTimer = rockSpawnRate; //Counts until it is time to spawn another rock
 SoundEngine soundEngine = SoundEngine();
 static int start = 1;
