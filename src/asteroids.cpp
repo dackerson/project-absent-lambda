@@ -40,7 +40,6 @@ const int MAX_ROCKS = 100;
 long ROCK_COUNT = 0;
 
 const GLdouble LASER_LENGTH = 20.0;
-const double LASER_RADIUS = 0.125;
 const GLdouble LASER_SPEED = 150.0;
 
 long LASER_BEAM_NUMBER = 0;

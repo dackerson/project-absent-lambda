@@ -120,13 +120,14 @@ void mySimulation(void){
 				float laserCenterX = ((*it)->Location().x);
 				float laserCenterY = ((*it)->Location().y);
 				float laserCenterZ = ((*it)->Location().z);
+				float laserRadius = ((*it)->laserRadius);
 
-				float laserFront = (laserCenterZ) - (LASER_LENGTH);
+				float laserFront = (laserCenterZ) - (laserRadius);
 				float laserBack = (laserCenterZ);
-				float laserLeft = (laserCenterX) - (LASER_RADIUS);
-				float laserRight = (laserCenterX) + (LASER_RADIUS);
-				float laserTop = (laserCenterY) + (LASER_RADIUS);
-				float laserBottom = (laserCenterY) - (LASER_RADIUS);
+				float laserLeft = (laserCenterX) - (laserRadius);
+				float laserRight = (laserCenterX) + (laserRadius);
+				float laserTop = (laserCenterY) + (laserRadius);
+				float laserBottom = (laserCenterY) - (laserRadius);
 
 				if((laserBack > rockFront) && (laserFront < rockBack)){
 					if((rockLeft < laserRight) && (rockRight > laserLeft) && (laserTop > rockBottom) && (laserBottom < rockTop)){

@@ -19,6 +19,7 @@ class LaserBeam{
 
 		long laserBeamNumber;
 		int centerCannon;
+		float laserRadius;
         void Location(Vector3 locationIn){location = locationIn;}
         void LocationX(GLdouble x){location.x = x;}
         void LocationY(GLdouble y){location.y = y;}

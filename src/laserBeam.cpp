@@ -9,6 +9,10 @@ LaserBeam::LaserBeam(int isCenterCannon){
     velocity.normalize();
     velocity = velocity.multipliedby(speed);
 	centerCannon = isCenterCannon;
+	laserRadius = 0.25;
+	if(centerCannon == 1){
+		laserRadius = 0.45;	
+	}
 }
 
 void LaserBeam::Update(GLdouble timeInterval){
@@ -40,13 +44,7 @@ void LaserBeam::Render(){
         glRotated(angle, angleVec.x, angleVec.y, angleVec.z);
     }
 	
-	double scalingFactor = 0.25;	
-
-	if(centerCannon == 1){
-		scalingFactor = 0.45;
-	}
-
-    glScaled(scalingFactor, scalingFactor, lengthMag);
+    glScaled(laserRadius, laserRadius, lengthMag);
 
 	if(centerCannon == 1){
 		glLightfv(GL_LIGHT0, GL_AMBIENT, lightGreen_ambient);
