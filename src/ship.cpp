@@ -1,5 +1,7 @@
 #include "ship.h"
 
+ISoundEngine* laserSoundEngine = createIrrKlangDevice();
+
 Ship::Ship(){
     health = 9001;
     location = Point3(0.0, 0.0, 0.0);
@@ -22,6 +24,7 @@ void Ship::fireLaser(set<LaserBeam*>* beams){
     beam->LocationX(location.x);
     beam->LocationY(location.y + gunHeight);
     beam->LocationZ(-SHIP_GUN_Z);
+	laserSoundEngine->play2D("../media/laser-060-medium-dual-voice.ogg");
 
     beams->insert(beam);
 }
