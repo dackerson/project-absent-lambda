@@ -53,6 +53,10 @@ const GLfloat lightRed_ambient[] = {9.0, 0.0, 0.0, 1.0f};
 const GLfloat lightRed_diffuse[] = {0.0, 0.0, 0.0, 1.0f};
 const GLfloat lightRed_specular[] = {0.0, 0.0, 0.0, 1.0f};
 
+const GLfloat lightGreen_ambient[] = {0.0, 9.0, 0.0, 1.0f};
+const GLfloat lightGreen_diffuse[] = {0.0, 0.0, 0.0, 1.0f};
+const GLfloat lightGreen_specular[] = {0.0, 0.0, 0.0, 1.0f};
+
 #include "SoundEngine.cpp"
 #include "supportClasses.cpp"
 #include "camera.cpp"

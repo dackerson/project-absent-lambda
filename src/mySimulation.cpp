@@ -30,7 +30,7 @@ void mySimulation(void){
             rock->BoundingSphereRadius(size);
 
             // Set its starting location
-            initialLocation.set(Vector3(startPosX, startPosY, 100.0));
+            initialLocation.set(Vector3(startPosX, startPosY, 250.0));
             //initialLocation.set(Vector3(0.0, 0.0, 50.0));
             rock->Location(initialLocation);
             rock->LinearAcceleration(Vector3(0.0, 0.0, 0.0));

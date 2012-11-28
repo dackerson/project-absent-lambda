@@ -48,9 +48,17 @@ void LaserBeam::Render(){
 
     glScaled(scalingFactor, scalingFactor, lengthMag);
 
-    glLightfv(GL_LIGHT0, GL_AMBIENT, lightRed_ambient);
-    glLightfv(GL_LIGHT0, GL_DIFFUSE, lightRed_diffuse);
-    glLightfv(GL_LIGHT0, GL_SPECULAR, lightRed_specular);
+	if(centerCannon == 1){
+		glLightfv(GL_LIGHT0, GL_AMBIENT, lightGreen_ambient);
+	    glLightfv(GL_LIGHT0, GL_DIFFUSE, lightGreen_diffuse);
+	    glLightfv(GL_LIGHT0, GL_SPECULAR, lightGreen_specular);
+
+	}
+	else{
+		glLightfv(GL_LIGHT0, GL_AMBIENT, lightRed_ambient);
+	    glLightfv(GL_LIGHT0, GL_DIFFUSE, lightRed_diffuse);
+	    glLightfv(GL_LIGHT0, GL_SPECULAR, lightRed_specular);
+	}
 
     Mesh msh;
     msh.drawCylinder();
