@@ -13,6 +13,7 @@ class PointMass{
         GLdouble coefficientOfRestitution;
         GLdouble TranslationMatrix[3];
         GLdouble RotationMatrix[3];
+       
 
     public:
         //Constructor
@@ -43,7 +44,7 @@ class PointMass{
         GLdouble BoundingSphereRadius(void){return radius;}
         void Elasticity(GLdouble elasticity){coefficientOfRestitution = elasticity;}
         GLdouble Elasticity(void){return coefficientOfRestitution;}
-
+        int texture;
         //Used to update the position of the ball according to its current
         // velocity and direction and the forces acting on it.
         bool Update(GLdouble changeInTime);
@@ -51,3 +52,4 @@ class PointMass{
         //Method to actually draw the ball
         void Render(void);
 };
+

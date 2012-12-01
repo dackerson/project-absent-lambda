@@ -2,19 +2,14 @@
 #include <GL/glu.h>
 #include <GL/glut.h>
 #include <GL/glx.h>
-#include <string>
 #include <iostream>
+#include <string>
 #include <fstream>
 using namespace std;
-
 using std::string;
 
-class RGB{ // holds a color triple each with 256 possible intensities
+class RGB{ // holds a color triple – each with 256 possible intensities
     public: unsigned char r,g,b;
-};
-
-class RGBA{ // holds a color triple each with 256 possible intensities and an alpha channel
-    public: unsigned char r,g,b,a;
 };
 
 //The RGBpixmap class stores the number of rows and columns in the pixmap, as well as the address of the first pixel in memory:
@@ -22,18 +17,105 @@ class RGBA{ // holds a color triple each with 256 possible intensities and an al
 class RGBpixmap{
   public: 
 	int nRows, nCols; // dimensions of the pixmap
-	RGBA* pixel; 	// array of pixels
+	RGB* pixel; 	// array of pixels
+	void make3DCheckerboard(Point3 P, Vector3 a, Vector3 b);
+	void make3DColour(Point3 P, Vector3 a, Vector3 b);
 	//	int readBMPFile(char * fname); // read BMP file into this pixmap
-	void setTexture(GLuint textureName);
+	void makeCheckerboard();
+        void setTexture(GLuint textureName);
 	int readBMPFile(string fname); // read BMP file into this pixmap
 };
+
+int B(double x, double y, double z){
+
+    return (int(5 * x) + int(5 * y) + int(5 * z))%2;
+
+}
+
+void RGBpixmap:: make3DCheckerboard(Point3 P, Vector3 a, Vector3 b)
+{  // make checkerboard patten
+	nRows = nCols = 64;
+	double s = 0; double t = 0;
+	double sinc = 1.0/nRows; double tinc = 1.0/nCols;
+	
+	pixel = new RGB[nRows * nCols]; 
+if(!pixel){cout << " Out of memory!" << endl; return;}
+	long count = 0;
+	for(int i = 0; i < nRows; i++){
+		for(int j = 0; j < nCols; j++)
+		{
+			double x = P.x + s*a.x + t*b.x;
+            double y = P.y + s*a.y + t*b.y;
+            double z = P.z + s*a.z + t*b.z;
+            int c = B(x, y, z) * 255;
+            
+            pixel[count].r = c; // red
+            pixel[count].g = c; // green
+            pixel[count].b = 0; // blue
+            count++;
+            
+            s = s + sinc; // increment s
+		}
+		s=0;
+		t = t + tinc; // increment t
+    }
+}
+
+
+
+void RGBpixmap:: make3DColour(Point3 P, Vector3 a, Vector3 b)
+{  // make checkerboard patten
+	nRows = nCols = 64;
+	double s = 0; double t = 0;
+	double sinc = 1.0/nRows; double tinc = 1.0/nCols;
+	
+	pixel = new RGB[nRows * nCols]; 
+if(!pixel){cout << " Out of memory!" << endl; return;}
+	long count = 0;
+	for(int i = 0; i < nRows; i++){
+		for(int j = 0; j < nCols; j++)
+		{
+			double x = P.x + s*a.x + t*b.x;
+            double y = P.y + s*a.y + t*b.y;
+            double z = P.z + s*a.z + t*b.z;
+            //int c = B(x, y, z) * 255;
+            
+            pixel[count].r = x*255.0; // red
+            pixel[count].g = y*255.0; // green
+            pixel[count].b = z*255.0; // blue
+            count++;
+            
+            s = s + sinc; // increment s
+		}
+		s=0;
+		t = t + tinc; // increment t
+    }
+}
+
+
+
+void RGBpixmap:: makeCheckerboard()
+{  // make checkerboard patten
+	nRows = nCols = 64;
+	pixel = new RGB[nRows * nCols]; 
+if(!pixel){cout << " Out of memory!" << endl; return;}
+	long count = 0;
+	for(int i = 0; i < nRows; i++)
+		for(int j = 0; j < nCols; j++)
+		{
+			int c = (((i/8) + (j/8)) %2) * 255;  
+			pixel[count].r = c; 	// red
+			pixel[count].g = c; 	// green
+			pixel[count++].b = 0; 	// blue
+		}
+}
 
 void RGBpixmap :: setTexture(GLuint textureName)
 {
 	glBindTexture(GL_TEXTURE_2D,textureName);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER,GL_NEAREST);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER,GL_NEAREST);
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB,nCols,nRows,0, GL_RGBA,
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB,nCols,nRows,0, GL_RGB,
                GL_UNSIGNED_BYTE, pixel);
 }
 
@@ -100,7 +182,7 @@ int RGBpixmap:: readBMPFile(string fname)
 	numPadBytes = nBytesInRow - 3 * numCols; // need this many
 	nRows = numRows; // set class's data members
 	nCols = numCols;
-        pixel = new RGBA[nRows * nCols]; //make space for array
+        pixel = new RGB[nRows * nCols]; //make space for array
 	if(!pixel) return 0; // out of memory!
 	long count = 0;
 	char dum;
@@ -112,8 +194,7 @@ int RGBpixmap:: readBMPFile(string fname)
 			inf.get(b); inf.get(g); inf.get(r); //read bytes
 			pixel[count].r = r; //place them in colors
 			pixel[count].g = g;
-			pixel[count].b = b;
-			pixel[count++].a = 0;
+			pixel[count++].b = b;
 		}
    		for(k = 0; k < numPadBytes ; k++) //skip pad bytes at row's end
 			inf >> dum;

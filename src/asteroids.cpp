@@ -63,6 +63,7 @@ const GLfloat lightGreen_specular[] = {0.0, 0.0, 0.0, 1.0f};
 #include "SoundEngine.cpp"
 #include "supportClasses.cpp"
 #include "camera.cpp"
+#include "RGBpixmap.cpp"
 #include "mesh.cpp"
 #include "laserBeam.cpp"
 #include "ship.cpp"

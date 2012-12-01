@@ -47,9 +47,24 @@ void PointMass:: Render(void){
 
     glScaled(radius, radius, radius);
 
-    // Now render the object with its transformations.
-    //glutSolidIcosahedron();
-    glutSolidSphere(1.0, 5, 4);
+    glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_DECAL);
+    if (texture == 1){
+        glBindTexture(GL_TEXTURE_2D,2007);
+    }
+    else if (texture == 2){
+        glBindTexture(GL_TEXTURE_2D,2008);
+    }
+    else if (texture == 3){
+        glBindTexture(GL_TEXTURE_2D,2009);
+    }
+    else if (texture == 4){
+        glBindTexture(GL_TEXTURE_2D,2010);
+    }
+    else if (texture == 0){
+        glBindTexture(GL_TEXTURE_2D,2011);
+    }
+
+    gluSphere(qobj, 1.0, 5, 10);
 
     // Restore the world transformation matrix.
     glPopMatrix();

@@ -27,6 +27,7 @@ void mySimulation(void){
                     if(DEBUG == 1){
                         cout << "Creating Rock: " << ROCK_COUNT << endl;
                     }
+                    rock->texture = ((rand() % 5));
                     rock->rockNumber = ROCK_COUNT++;
                     rock->Mass(1);
                     rock->BoundingSphereRadius(size);

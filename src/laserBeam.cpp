@@ -59,7 +59,10 @@ void LaserBeam::Render(){
 	}
 
     Mesh msh;
+    glDisable(GL_TEXTURE_2D);
+    //glBindTexture(GL_TEXTURE_2D,0);//reset texture to bind  
     msh.drawCylinder();
+    glEnable(GL_TEXTURE_2D);
 
     glLightfv(GL_LIGHT0, GL_AMBIENT, lightWhite_ambient);
     glLightfv(GL_LIGHT0, GL_DIFFUSE, lightWhite_diffuse);

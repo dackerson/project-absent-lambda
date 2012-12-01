@@ -36,6 +36,7 @@ int main(int argc, char * argv[])
     cam.set(eye, look, up); // make the initial camera
     cam.setShape(VIEW_ANGLE, (WINDOW_WIDTH * 1.0) / WINDOW_HEIGHT, NEAR_PLANE, FAR_PLANE);
 
+    initTexture();
     //enter main loop
     glutMainLoop();
 
