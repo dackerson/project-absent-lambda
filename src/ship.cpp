@@ -16,9 +16,17 @@ Ship::Ship(){
 	gunRightYOffset = 1.0;
 }
 
-void Ship::setLocation(int x, int y){
-    LocationX(((x*1.0) * (X_MAX - X_MIN) / -WINDOW_WIDTH) + (0.5 * (X_MAX - X_MIN)));
-    LocationY(((y*1.0) * (Y_MAX - Y_MIN) / -WINDOW_HEIGHT) + (0.5 * (Y_MAX - Y_MIN)));
+void Ship::setLocation(Camera cam, int x, int y){
+    GLdouble newX = ((x*1.0) * (X_MAX - X_MIN) / -WINDOW_WIDTH) + (0.5 * (X_MAX - X_MIN));
+    GLdouble newY = ((y*1.0) * (Y_MAX - Y_MIN) / -WINDOW_HEIGHT) + (0.5 * (Y_MAX - Y_MIN));
+
+    LocationX(newX);
+    LocationY(newY);
+
+    Point3 eye(newX, newY, 0.0);
+    Point3 look(newX, newY, 1.0);
+    Vector3 up(0.0, 1.0, 0.0);
+    cam.set(eye, look, up);
 }
 
 void Ship::fireLeftLaser(set<LaserBeam*>* beams){

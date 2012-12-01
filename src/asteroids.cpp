@@ -30,10 +30,10 @@ const float SHIP_WIDTH = 12.0;
 const float SHIP_LENGTH = 10.0;
 
 // For mouse movement
-const int X_MAX = 18;
-const int X_MIN = -18;
-const int Y_MAX = 18;
-const int Y_MIN = -18;
+const int X_MAX = 25;
+const int X_MIN = -25;
+const int Y_MAX = 25;
+const int Y_MIN = -25;
 
 const int MAX_ROCKS = 100;
 

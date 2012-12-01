@@ -23,7 +23,7 @@ class Ship{
 		void LocationY(GLdouble y){location.y = y;}
 		void LocationZ(GLdouble z){location.z = z;}
 		Point3 Location(void){return location;}
-		void setLocation(int x, int y);
+		void setLocation(Camera cam, int x, int y);
         void fireLeftLaser(set<LaserBeam*>* beam);
 		void fireCenterLaser(set<LaserBeam*>* beam);
 		void fireRightLaser(set<LaserBeam*>* beam);
