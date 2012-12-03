@@ -3,7 +3,7 @@
 SoundEngine soundEngineLaser = SoundEngine();
 
 Ship::Ship(){
-    health = 9001;
+    health = 1000.0;
     location = Point3(0.0, 0.0, 0.0);
 
     // Location of the ship's origin

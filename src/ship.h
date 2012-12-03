@@ -8,7 +8,7 @@ using namespace std;
 class Ship{
 	private:
 		Mesh msh;
-		int health;
+		double health;
 		Point3 location;
 		Point3 origin;
         double gunHeight;
@@ -18,6 +18,7 @@ class Ship{
 		double gunRightYOffset;
 	public:
 		Ship();
+        double Health(){return health;}
 		void Location(Point3 locationIn){location = locationIn;}
 		void LocationX(GLdouble x){location.x = x;}
 		void LocationY(GLdouble y){location.y = y;}

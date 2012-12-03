@@ -16,6 +16,9 @@ void myDisplay(void)
     Point3 look(shipLocation.x, shipLocation.y, 1.0);
     Vector3 up(0.0, 1.0, 0.0);
 
+    char* scoreString = new char[50];
+    sprintf(scoreString, "%d", ((int)PLAYER_SCORE));
+
     switch(gameState){
         case GAME_OVER_SCREEN:
         case GAME_SCREEN:
@@ -44,17 +47,16 @@ void myDisplay(void)
 
             glColor4f(0.0, 1.0, 0.0, 0.0);
             glRasterPos2d(0.0, 0.95);
-            glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, 'A');
-            glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, 'B');
-            glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, 'C');
-            glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, 'D');
-            glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, 'E');
-
+            for(int i = 0; scoreString[i]!='\0'; i++){
+                glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, scoreString[i]);
+            }
+   
             glRasterPos2d(0.0, 0.9);
-            glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, '=');
-            glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, '=');
-            glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, '=');
-            glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, '=');
+            for(int i = 0; i < ship.Health(); i++){
+                glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, '=');
+                glRasterPos2d((0.4*i)/1000.0, 0.9);
+            }
+
 
             //glMatrixMode(GL_MODELVIEW);
             //glLoadIdentity();

@@ -12,11 +12,11 @@
 using namespace irrklang;
 #pragma comment(lib, "irrKlang.lib") // link with irrKlang.dll
 
-const int DEBUG = 1;
+const int DEBUG = 0;
 
 const GLdouble PI = 4*atan(1);
-const int WINDOW_HEIGHT = 600;
-const int WINDOW_WIDTH = 800;
+int WINDOW_HEIGHT = 600;
+int WINDOW_WIDTH = 800;
 
 const float VIEW_ANGLE = 25.0;
 const float NEAR_PLANE = 0.5f;
@@ -38,6 +38,9 @@ const int Y_MIN = -25;
 const int MAX_ROCKS = 100;
 
 long ROCK_COUNT = 0;
+
+long MAX_HEALTH = 1000;
+double PLAYER_SCORE = 0.0;
 
 enum{ TITLE_SCREEN, GAME_SCREEN, GAME_OVER_SCREEN };
 
