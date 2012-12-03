@@ -87,6 +87,7 @@ void mySimulation(void){
                             if(DEBUG == 1){
                                 cout << "DAMAGE: Colision from Rock: " << (*it)->rockNumber << "!!!!!!!!" << endl;
                             }
+                            ship.dropHealth(rockBoundingSphereRadius * ROCK_DAMAGE);
                             soundEngine.playExplosionSound();
                             rocks.erase(it);
                         }
