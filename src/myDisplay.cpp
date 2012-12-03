@@ -11,7 +11,7 @@ void myDisplay(void)
     glClearColor(0.0f, 0.0f, 0.0f, 0.0f);  // background is black
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-    Point3 shipLocation = ship.Location();
+    Point3 shipLocation = cam.getEye();
     Point3 eye(shipLocation.x, shipLocation.y, 0.0);
     Point3 look(shipLocation.x, shipLocation.y, 1.0);
     Vector3 up(0.0, 1.0, 0.0);

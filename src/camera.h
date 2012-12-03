@@ -11,6 +11,7 @@ class Camera{
 
     public:
         Camera();  // default constructor
+        Point3 getEye(){return eye;}
         void set(Point3 eye, Point3 look, Vector3 up); // like gluLookAt()
         void roll(GLdouble angle); // roll it
         void yaw(GLdouble angle); // yaw it

@@ -29,6 +29,12 @@ const float SHIP_HEIGHT = 6.0;
 const float SHIP_WIDTH = 12.0;
 const float SHIP_LENGTH = 10.0;
 
+// For asteroid generation
+const int ROCK_X_MAX = 50;
+const int ROCK_X_MIN = -50;
+const int ROCK_Y_MAX = 50;
+const int ROCK_Y_MIN = -50;
+
 // For mouse movement
 const int X_MAX = 25;
 const int X_MIN = -25;

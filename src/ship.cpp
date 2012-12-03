@@ -23,10 +23,12 @@ void Ship::setLocation(Camera cam, int x, int y){
     LocationX(newX);
     LocationY(newY);
 
+    /*
     Point3 eye(newX, newY, 0.0);
     Point3 look(newX, newY, 1.0);
     Vector3 up(0.0, 1.0, 0.0);
     cam.set(eye, look, up);
+    */
 }
 
 void Ship::fireLeftLaser(set<LaserBeam*>* beams){
