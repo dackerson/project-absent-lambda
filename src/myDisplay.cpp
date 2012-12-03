@@ -39,13 +39,18 @@ void myDisplay(void)
             ship.Render();
 
             glDisable(GL_TEXTURE_2D);
+            glEnable(GL_COLOR_MATERIAL);
+
             glMatrixMode(GL_PROJECTION);
             glLoadIdentity();
             glOrtho(0, 1, 0, 1, 0, 1);
             glMatrixMode(GL_MODELVIEW);
             glLoadIdentity();
 
-            glColor4f(0.0, 1.0, 0.0, 0.0);
+            glLightfv(GL_LIGHT0, GL_AMBIENT, lightGreen_ambient);
+            glLightfv(GL_LIGHT0, GL_DIFFUSE, lightGreen_diffuse);
+            glLightfv(GL_LIGHT0, GL_SPECULAR, lightGreen_specular);
+
             glRasterPos2d(0.0, 0.95);
             for(int i = 0; scoreString[i]!='\0'; i++){
                 glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, scoreString[i]);
@@ -53,12 +58,14 @@ void myDisplay(void)
    
             glRasterPos2d(0.0, 0.9);
             for(int i = 0; i < ship.Health(); i++){
-                glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, '=');
+                glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, '|');
                 glRasterPos2d((0.4*i)/1000.0, 0.9);
             }
 
             cam.setShape(VIEW_ANGLE, (WINDOW_WIDTH * 1.0) / WINDOW_HEIGHT, NEAR_PLANE, FAR_PLANE);
             cam.set(eye, look, up);
+            
+            glDisable(GL_COLOR_MATERIAL);
             glEnable(GL_TEXTURE_2D);
             
             glBindTexture(GL_TEXTURE_2D,2012); 	// star map
