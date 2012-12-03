@@ -57,13 +57,17 @@ void myDisplay(void)
                 glRasterPos2d((0.4*i)/1000.0, 0.9);
             }
 
-
-            //glMatrixMode(GL_MODELVIEW);
-            //glLoadIdentity();
-            
             cam.setShape(VIEW_ANGLE, (WINDOW_WIDTH * 1.0) / WINDOW_HEIGHT, NEAR_PLANE, FAR_PLANE);
             cam.set(eye, look, up);
             glEnable(GL_TEXTURE_2D);
+            
+            glBindTexture(GL_TEXTURE_2D,2012); 	// star map
+	        glBegin(GL_QUADS);
+	          glTexCoord2f(0.0, 0.0); glVertex3f(-500.0f, 500.0f, FAR_PLANE-5.0);
+	          glTexCoord2f(0.0, 1.0); glVertex3f(500.0f, 500.0f, FAR_PLANE-5.0);
+	          glTexCoord2f(1.0, 1.0); glVertex3f( 500.0f, -500.0f, FAR_PLANE-5.0);
+	          glTexCoord2f(1.0, 0.0); glVertex3f(-500.0f,-500.0f, FAR_PLANE-5.0);
+	        glEnd();
             
             break;
         case TITLE_SCREEN:

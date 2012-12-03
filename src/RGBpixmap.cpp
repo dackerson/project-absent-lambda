@@ -42,8 +42,7 @@ void initTexture(void)
 	ret = pix[5].readBMPFile(s4);
         pix[5].setTexture(2006);   
 
-
-    string s10 = "../textures/jup2vuu2.bmp";
+        string s10 = "../textures/jup2vuu2.bmp";
 	ret = pix[6].readBMPFile(s10);
         pix[6].setTexture(2007);
         
@@ -61,6 +60,9 @@ void initTexture(void)
         
         string s9 = "../textures/plu1rss1.bmp";
 	ret = pix[10].readBMPFile(s9);
-        pix[10].setTexture(2011);   
-
+        pix[10].setTexture(2011);  
+        
+        string s11 = "../textures/sky.bmp";//star map for background
+	ret = pix[11].readBMPFile(s11);
+        pix[11].setTexture(2012);   
 }

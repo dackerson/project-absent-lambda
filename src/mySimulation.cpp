@@ -10,7 +10,7 @@ void mySimulation(void){
 
     switch(gameState){
         case GAME_SCREEN:
-            PLAYER_SCORE += 1;
+            PLAYER_SCORE += 1;  
             
             if(rockSpawnTimer >= rockSpawnRate){
                 if(((int)(rocks.size())) == MAX_ROCKS){

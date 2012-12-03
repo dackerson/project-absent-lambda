@@ -41,18 +41,13 @@ class Mesh{
     public:
         Mesh(); 		// constructor
         //        ~Mesh();                // destructor
-        int readFile(char * fileName);  // to read in a filed mesh
         void draw();
-        void freeMesh();
-        void printMesh();
-        void writeMesh(char * fname);
         int isEmpty(){ return (numVerts = 0) || (numFaces == 0) || (numNormals == 0);}
         void makeEmpty() { numVerts = numFaces = numNormals = 0;}
         Vector3 newell4(int indx[]);
         Vector3 newell3(int indx[]);
 
         void makeSurfaceMesh();  // Make a surface mesh
-        void drawrule(int N);
         void makePrism(PolyLine P, float H);
 
         void makeShip(); //Creates the mesh for a Cretaceous class fighter

@@ -47,7 +47,6 @@ void Mesh:: draw() // use OpenGL to draw this mesh
     
     glBegin(GL_POLYGON);
     for(int v = 0; v < face[f].nVerts; v++){
-        //BJH: Texture mappings. Possibly make this a function mapTexture(structure, f, numFaces)?
        if (structure == "leftWing"){
           if (f < (numFaces-2)){ //side face
              //set (s,t) to map four corners
@@ -199,34 +198,19 @@ void Mesh:: draw() // use OpenGL to draw this mesh
              else if (v == 3){
                 glTexCoord2f(1.0, 0.0);
              }             
-          /*}
-          else {//top or bottom face
-            //(s,t) get mapped to space around wing edge, clipping the image.
-             if (v == 0 || v == 3){
-                glTexCoord2f(1.0, 0.0);                  
-             }
-             else if (v == 1){
-                 glTexCoord2f(0.0, 1.0);
-             }
-             else if (v == 2){  
-                glTexCoord2f(0.0, 0.0);                  
-             }
-          }*/
       }//if mainGun
       
-      //cout << pt[iv].x << " "<< pt[iv].y << " "<< pt[iv].z << " ";   
       int in = face[f].vert[v].normIndex ; // index of this normal
       int iv =  face[f].vert[v].vertIndex ; // index of this vertex
       glNormal3f(norm[in].x, norm[in].y, norm[in].z);
       glVertex3f(pt[iv].x, pt[iv].y, pt[iv].z);
     }//next vertex
-    //cout << "\n";
     glEnd();
     
    
   }//next face
-  //glBindTexture(GL_TEXTURE_2D,0);//reset texture to bind  
   glPopMatrix();
+  
 }
 
 void Mesh:: drawCylinder(){
@@ -242,86 +226,6 @@ void Mesh:: drawCylinder(){
 
     makePrism(P, h);
     draw();
-}
-
-int Mesh:: readFile(char * fileName)
-{
-  fstream infile;
-  infile.open(fileName, ios::in);
-  if(infile.fail()) return -1; // error - can't open file
-  if(infile.eof())  return -1; // error - empty file
-  infile >> numVerts >> numNormals >> numFaces;
-  pt = new Point3[numVerts];
-  norm = new Vector3[numNormals];
-  face = new Face[numFaces];
-  //check that enough memory was found:
-  if( !pt || !norm || !face)return -1; // out of memory
-  for(int p = 0; p < numVerts; p++) // read the vertices
-	infile >> pt[p].x >> pt[p].y >> pt[p].z;
-  for(int n = 0; n < numNormals; n++) // read the normals
-	infile >> norm[n].x >> norm[n].y >> norm[n].z;
-  for(int f = 0; f < numFaces; f++)// read the faces
-  {
-    infile >> face[f].nVerts;
-    int nv = face[f].nVerts;  // no. of vertices in this face
-    face[f].vert = new VertexID[nv];
-    for(int i = 0; i < nv; i++)  // read vertex indices for this face
-      infile >> face[f].vert[i].vertIndex;
-    for(int i = 0; i < nv; i++)  // read normal indices for this face
-      infile >> face[f].vert[i].normIndex;
-  } 
-  return 0; // success
-} 
-
-//<<<<<<<<<<<<<<<<<<<<<<<<<<<< print mesh>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-void Mesh:: printMesh(void)
-{ // print this mesh object onto standard output.
-  if(numVerts == 0 || numNormals   == 0 || numFaces == 0) return; //empty
-  cout << numVerts << " " << numNormals << " " << numFaces << "\n";
-  // write the vertex and vertex normal list
-  for(int i = 0; i < numVerts; i++)
-    cout << pt[i].x   << " " << pt[i].y   << " " << pt[i].z << "\n";
-  for(int ii = 0; ii < numNormals; ii++)
-    cout  << norm[ii].x << " " << norm[ii].y << " " << norm[ii].z << "\n";
-  // write the face data
-  for(int f = 0; f < numFaces; f++)
-  {
-    int n = face[f].nVerts;
-    cout << n << "\n";
-    for(int v = 0; v < n; v++)// write vertex indices for this face
-      cout << face[f].vert[v].vertIndex << " ";	
-    cout << "\n";
-    for(int k = 0; k < n; k++)	// write normal indices for this face 
-      cout << face[f].vert[k].normIndex << " "; 
-    cout << "\n";
-  }
-}
-
-//<<<<<<<<<<<<<<<<<<<<<<<<<<<< write mesh>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-void Mesh:: writeMesh(char * fname)
-{ // write this mesh object into a new Chapter 6 format file.
-  if(numVerts == 0 || numNormals   == 0 || numFaces == 0) return; //empty
-  fstream outStream(fname, ios ::out); // open the output stream
-  if(outStream.fail()) {cout << "can't make new file: " << fname << endl; return;}
-  outStream << numVerts << " " << numNormals << " " << numFaces << "\n";
-  // write the vertex and vertex normal list
-  for(int i = 0; i < numVerts; i++)
-    outStream << pt[i].x   << " " << pt[i].y   << " " << pt[i].z << "\n";
-  for(int ii = 0; ii < numNormals; ii++)
-    outStream  << norm[ii].x << " " << norm[ii].y << " " << norm[ii].z << "\n";
-  // write the face data
-  for(int f = 0; f < numFaces; f++)
-  {
-    int n = face[f].nVerts;
-    outStream << n << "\n";
-    for(int v = 0; v < n; v++)// write vertex indices for this face
-      outStream << face[f].vert[v].vertIndex << " ";	
-    outStream << "\n";
-    for(int k = 0; k < n; k++)	// write normal indices for this face 
-      outStream << face[f].vert[k].normIndex << " "; 
-    outStream << "\n";
-  }
-  outStream.close();
 }
 
 Vector3 Mesh :: newell4(int indx[])
@@ -365,10 +269,6 @@ void Mesh::makeSurfaceMesh()
         double pi = 3.141592653589793 ;
         int numValsU = 40; 
         int numValsV = 40;       // set these
-	/*double u, v, uMin = -pi;
-        double vMin = -pi;
-	double uMax = pi;
-        double vMax = pi;*/
         double u, v, uMin = -pi/4;
         double vMin = -pi/4;
 	double uMax = pi/4;
@@ -409,66 +309,6 @@ void Mesh::makeSurfaceMesh()
 				face[whichFace].vert[3].normIndex = whichVert - numValsV;
 			}
 		}
-}
-
-
-void Mesh::drawrule(int N){
-    glLineWidth(3.0);
-    glColor3d(0,0,0);
-    
-    int i,j;
-    double pi = 3.141592653589793 ;
-        int numValsU = N; 
-        int numValsV = N;       // set these
-	/*double u, v, uMin = -pi;
-        double vMin = -pi;
-	double uMax = pi;
-        double vMax = pi;*/
-        double u, v, uMin = -pi/4;
-        double vMin = -pi/4;
-	double uMax = pi/4;
-        double vMax = pi/4;
-	double delU = (uMax - uMin)/(numValsU);
-	double delV = (vMax - vMin)/(numValsV);
-	
-	
-	numVerts = numValsU * numValsV + 1; // total # of vertices
-	numFaces = (numValsU -1) * (numValsV - 1) ; // # of faces
-	numNormals = numVerts; // for smooth shading - one normal per vertex
-	pt   = new Point3[numVerts];   // make space 
-	face = new Face[numFaces];    
-    
-    for(i = 0, u = uMin; i < numValsU; i++, u += delU){
-		glBegin(GL_LINE_STRIP);
-		for(j = 0, v = vMin; j < numValsV; j++, v += delV)
-		{
-		    glVertex3f(X(u, v),Y(u, v),Z(u, v));
-		}
-		glEnd();
-       
-    }
-    
-    
-    for(i = 0, v = vMin; i < numValsV; i++, v += delV){    
-		glBegin(GL_LINE_STRIP);
-		for(j = 0, u = uMin; j < numValsU; j++, u += delU)
-		{
-		    glVertex3f(X(u, v),Y(u, v),Z(u, v));
-		}
-		glEnd();
-			        
-    }
-    //displayTexCube();
-    glFlush();
-    //myDisplay();
-    
-        
-        //Hints: (a) Use the GL_LINE_STRIP primitive to compose and draw the ruled lines.
-        //(b) Use the same setup logic as in makeSurfaceMesh() to define the location of the ruled lines on the
-        //boundaries of the mesh faces.
-
-        //Monkey saddle surface with lines drawn at x = k and y = k for k = a constant. Here, the number of
-        //lines in each direction is c = 20, so lines are drawn at increments of (umax - umin)/c and (vmax - vmin)/c.
 }
 
 void Mesh::makePrism( PolyLine P, float H)
@@ -565,51 +405,9 @@ for(int k = 0; k < N; k++){
 }
 
 void Mesh:: makeShip(){
-//myDisplay();
     PolyLine P;
     float H = 2.0;
-    //glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_DECAL);
-
-    //main body
-    /*P.num = 11;
-    P.pt[0].set(0, 1);
-    P.pt[1].set(4, 1);
-    P.pt[2].set(4, 0);    
-    P.pt[3].set(8, 0);
-    P.pt[4].set(8, 1);
-    P.pt[5].set(12, 1);  
-    P.pt[6].set(8, 4);
-    P.pt[7].set(8, 8);
-    P.pt[8].set(6, 10);
-    P.pt[9].set(4, 8);
-    P.pt[10].set(4, 4);*/
-    
-    /*
-    P.num = 9;
-    P.pt[0].set(0, 1);
-    P.pt[1].set(4, 1);
-       
-    P.pt[2].set(8, 0);
-    P.pt[3].set(8, 1);
-     
-    P.pt[4].set(8, 4);
-    P.pt[5].set(8, 8);
-    P.pt[6].set(6, 10);
-    P.pt[7].set(4, 8);
-    P.pt[8].set(4, 4);*/
-    
-    /*P.pt[0].set(4, 4);
-    P.pt[1].set(4, 8);
-    P.pt[2].set(6, 10);
-    P.pt[3].set(8, 8);
-    P.pt[4].set(8, 4);
-    P.pt[5].set(12, 1); 
-    P.pt[6].set(8, 1);
-    P.pt[7].set(8, 0);
-    P.pt[8].set(4, 0);    
-    P.pt[9].set(4, 1);  
-    P.pt[10].set(0, 1);  */  
 
     //left wing    
     P.num = 3;
@@ -652,9 +450,6 @@ void Mesh:: makeShip(){
 
     glPushMatrix();
 
-    //glTranslated(5.5, 0.0, 0.0);
-    //glRotatef(GLfloat angle, GLfloat x, GLfloat y, GLfloat z);
-
     glTranslated(6.5, 0, 2);
     glRotatef(90, 0, -1, 0);
     //tail fan
@@ -671,19 +466,16 @@ void Mesh:: makeShip(){
     glPopMatrix();
     glPushMatrix();
     
-     //Quadric object for the guns
+    //Quadric object for the guns
     GLUquadricObj *qobj = gluNewQuadric();
         gluQuadricDrawStyle(qobj, GLU_FILL); /* smooth shaded */
         gluQuadricNormals(qobj, GLU_SMOOTH);
         gluQuadricTexture(qobj, GL_TRUE);
 
     //main gun
-
     glTranslated(6, 0.1, 5);
     glScaled(0.5, 2, 0.5);
-    glRotatef(90, -1, 0, 0);
-    
-    
+    glRotatef(90, -1, 0, 0);   
            
     glBindTexture(GL_TEXTURE_2D,2004);//barrel of the gun
     gluCylinder(qobj, 1.0f, 1.0, 2.0, 10, 1);//Barrel
@@ -691,8 +483,7 @@ void Mesh:: makeShip(){
     glBindTexture(GL_TEXTURE_2D,2005);//mouthpiece of the gun
     gluDisk(qobj, 0.0, 1.0, 10, 1);//Top of barrel  
 
-    glPopMatrix();
-    
+    glPopMatrix();    
     glPushMatrix();
     
     //left wing gun
@@ -708,8 +499,8 @@ void Mesh:: makeShip(){
 
     glPopMatrix();
     glPushMatrix();
-    //right wing gun
     
+    //right wing gun    
     glTranslated(11.5, 1.1, 1);
     glScaled(0.5, 1, 0.5);
     glRotatef(90, -1, 0, 0);    
