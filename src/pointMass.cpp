@@ -63,8 +63,15 @@ void PointMass:: Render(void){
     else if (texture == 0){
         glBindTexture(GL_TEXTURE_2D,2011);
     }
+    else if (texture == 5){
+        glBindTexture(GL_TEXTURE_2D,2013);//Earth boss
+    }
+    else if (texture == 6){
+        glBindTexture(GL_TEXTURE_2D,2014);//Moon boss
+    }
 
-    gluSphere(qobj, 1.0, 5, 10);
+    gluSphere(qobj, 1.0, longitude, latitude);
+    //gluSphere(qobj, 1.0, 5, 10);
 
     // Restore the world transformation matrix.
     glPopMatrix();

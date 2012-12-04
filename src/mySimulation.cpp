@@ -37,7 +37,7 @@ void mySimulation(void){
                     rockSpawnTimer = rockSpawnRate;
                 }
                 else{
-                    GLdouble size = 5.0; //((rand() % 5) + 5) / 1.0;
+                    GLdouble size;
                     int startPosX = (rand() % (ROCK_X_MAX - ROCK_X_MIN)) + ROCK_X_MIN;
                     int startPosY = (rand() % (ROCK_Y_MAX - ROCK_Y_MIN)) + ROCK_Y_MIN;
                     int startSpeed = -30; //-(rand() % 40) - 10;
@@ -49,7 +49,29 @@ void mySimulation(void){
                     if(DEBUG == 1){
                         cout << "Creating Rock: " << ROCK_COUNT << endl;
                     }
-                    rock->texture = ((rand() % 5));
+                
+                    if (EARTH==false && PLAYER_SCORE >= 1200){//Earth boss
+                        EARTH=true;                        
+                        size = 75.0;                       
+                        rock->texture = (5); 
+                        rock->longitude = 50;
+                        rock->latitude = 50;                           
+                    }
+                    else if (MOON==false && PLAYER_SCORE >= 1000){//Moon boss
+                        MOON=true;
+                        size = 25.0;
+                        rock->texture = (6);  
+                        rock->longitude = 50;
+                        rock->latitude = 50;            
+                    }                    
+                    else if (PLAYER_SCORE <= 900 || PLAYER_SCORE >= 1300){ //normal asteroid
+                        size = 5.0; //((rand() % 5) + 5) / 1.0;                        
+                        rock->texture = ((rand() % 5));
+                        rock->longitude = ((rand() % 5) + 4);
+                        rock->latitude = ((rand() % 5) + 4);
+                    }
+                    else{break;}
+
                     rock->rockNumber = ROCK_COUNT++;
                     rock->Mass(1);
                     rock->BoundingSphereRadius(size);
@@ -62,7 +84,7 @@ void mySimulation(void){
                     rock->LinearVelocity(Vector3(0.0, 0.0, startSpeed));
                     rock->Rotation(0.0);
                     rock->AngularVelocity(Vector3(1.00, 1.00, 1.00));
-                    rocks.insert(rock);
+                    rocks.insert(rock);                   
                 }
             }
 

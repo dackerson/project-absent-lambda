@@ -45,6 +45,8 @@ class PointMass{
         void Elasticity(GLdouble elasticity){coefficientOfRestitution = elasticity;}
         GLdouble Elasticity(void){return coefficientOfRestitution;}
         int texture;
+        int longitude;
+        int latitude;
         //Used to update the position of the ball according to its current
         // velocity and direction and the forces acting on it.
         bool Update(GLdouble changeInTime);
