@@ -12,23 +12,24 @@ void mySimulation(void){
         case GAME_SCREEN:
             PLAYER_SCORE += 0.1;  
 
-            if(0){
-                double factor = 0.9;
+            {
+                double factor = 0.8;
 
                 Point3 eye = cam.getEye();
-                Point3 shipLocation = ship.Location();
+                Point3 reticle = ship.Reticle();
                 
                 Point3 newEye(
-                    (factor * eye.x) + ((1 - factor) * shipLocation.x),
-                    (factor * eye.y) + ((1 - factor) * shipLocation.y),
+                    (factor * eye.x) + ((1 - factor) * reticle.x),
+                    (factor * eye.y) + ((1 - factor) * reticle.y),
                     0.0
                 );
 
-                Point3 look(shipLocation.x, shipLocation.y, -SHIP_PLANE_Z);
+                Point3 look(newEye.x, newEye.y, SHIP_PLANE_Z);
                 Vector3 up(0.0, 1.0, 0.0);
 
                 cam.set(newEye, look, up);
-
+                ship.LocationX(newEye.x);
+                ship.LocationY(newEye.y);
             }
             
             if(rockSpawnTimer >= rockSpawnRate){

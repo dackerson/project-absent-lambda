@@ -5,7 +5,7 @@ SoundEngine soundEngineLaser = SoundEngine();
 Ship::Ship(){
     health = 1000.0;
     location = Point3(0.0, 0.0, 0.0);
-    direction = Vector3(0.0, 0.0, 1.0);
+    reticle = Point3(0.0, 0.0, RETICLE_PLANE_Z);
 
     // Location of the ship's origin
     origin = Point3(-6.0, 0.0, SHIP_PLANE_Z);
@@ -21,8 +21,8 @@ void Ship::setLocation(Camera cam, int x, int y){
     GLdouble newX = ((x*1.0) * (X_MAX - X_MIN) / -WINDOW_WIDTH) + (0.5 * (X_MAX - X_MIN));
     GLdouble newY = ((y*1.0) * (Y_MAX - Y_MIN) / -WINDOW_HEIGHT) + (0.5 * (Y_MAX - Y_MIN));
 
-    LocationX(newX);
-    LocationY(newY);
+    ReticleX(newX);
+    ReticleY(newY);
 
     /*
     Point3 eye(newX, newY, 0.0);
@@ -80,6 +80,18 @@ void Ship::Render(void){
     glTranslated(location.x, location.y, location.z);
 
     glTranslated(origin.x, origin.y, origin.z);
+
+    Vector3 zAxis(0.0, 0.0, 1.0);
+    Vector3 direction(
+        reticle.x - location.x,
+        reticle.y - location.y,
+        reticle.z - location.z
+    );
+
+    GLdouble dirMag = sqrt(direction.dot(direction));
+    GLdouble angle = acos(zAxis.dot(direction)/dirMag) * 180/PI;
+    Vector3 normal = zAxis.cross(direction);
+    glRotated(angle, normal.x, normal.y, normal.z);
     glRotated(90, 1.0, 0.0, 0.0);
     glScaled(1.0, 1.0, -1.0);
 

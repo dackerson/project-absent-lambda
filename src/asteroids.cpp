@@ -24,7 +24,7 @@ const float FAR_PLANE = 1000.0f;
 
 const float SHIP_PLANE_Z = 75.0;
 const float SHIP_GUN_Z = SHIP_PLANE_Z;
-const float RETICLE_PLANE_Z = 150;
+const float RETICLE_PLANE_Z = 100;
 
 const float SHIP_HEIGHT = 6.0;
 const float SHIP_WIDTH = 12.0;
