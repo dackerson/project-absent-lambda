@@ -43,6 +43,9 @@ class PointMass{
         GLdouble BoundingSphereRadius(void){return radius;}
         void Elasticity(GLdouble elasticity){coefficientOfRestitution = elasticity;}
         GLdouble Elasticity(void){return coefficientOfRestitution;}
+
+        GLdouble hitPoints;
+
         int texture;
         //Used to update the position of the ball according to its current
         // velocity and direction and the forces acting on it.

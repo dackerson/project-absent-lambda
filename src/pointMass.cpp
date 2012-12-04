@@ -2,6 +2,7 @@
 #include "pointMass.h"
 
 PointMass:: PointMass(){
+    hitPoints = size;
 }
 
 bool PointMass:: Update(GLdouble changeInTime){
