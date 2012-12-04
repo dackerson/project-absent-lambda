@@ -5,6 +5,7 @@ SoundEngine soundEngineLaser = SoundEngine();
 Ship::Ship(){
     health = 1000.0;
     location = Point3(0.0, 0.0, 0.0);
+    direction = Vector3(0.0, 0.0, 1.0);
 
     // Location of the ship's origin
     origin = Point3(6.0, 0.0, SHIP_PLANE_Z);

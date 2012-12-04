@@ -10,6 +10,7 @@ class Ship{
 		Mesh msh;
 		double health;
 		Point3 location;
+        Vector3 direction;
 		Point3 origin;
         double gunHeight;
 		double gunLeftXOffset;
@@ -26,6 +27,8 @@ class Ship{
 		void LocationZ(GLdouble z){location.z = z;}
 		Point3 Location(void){return location;}
 		void setLocation(Camera cam, int x, int y);
+        void Direction(Vector3 directionIn){direction = directionIn;}
+        Vector3 Direction(void){return direction;}
         void fireLeftLaser(set<LaserBeam*>* beam);
 		void fireCenterLaser(set<LaserBeam*>* beam);
 		void fireRightLaser(set<LaserBeam*>* beam);
