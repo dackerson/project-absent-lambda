@@ -84,4 +84,5 @@ const GLfloat lightGreen_specular[] = {0.0, 0.0, 0.0, 1.0f};
 #include "mySimulation.cpp"
 #include "myKeyboard.cpp"
 #include "myMouse.cpp"
+#include "myReshape.cpp"
 #include "main.cpp"

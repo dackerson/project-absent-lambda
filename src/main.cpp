@@ -17,6 +17,7 @@ int main(int argc, char * argv[])
     glutMotionFunc(myMovedMouse);
     glutDisplayFunc(myDisplay);
     glutIdleFunc(mySimulation);
+    glutReshapeFunc(myReshape);
 
     // enable some OpenGL things
     glEnable(GL_LIGHTING);  // enable the light source
