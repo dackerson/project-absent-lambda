@@ -13,7 +13,6 @@ class PointMass{
         GLdouble coefficientOfRestitution;
         GLdouble TranslationMatrix[3];
         GLdouble RotationMatrix[3];
-       
 
     public:
         //Constructor

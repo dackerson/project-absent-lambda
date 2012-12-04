@@ -228,6 +228,8 @@ void Mesh:: drawCylinder(){
     draw();
 }
 
+void Mesh::drawReticle(){}
+
 Vector3 Mesh :: newell4(int indx[])
 { /* return the normalized normal to face with vertices
      pt[indx[0]],...,pt[indx[3]]. i.e. indx[] contains the four indices 

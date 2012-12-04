@@ -1,6 +1,6 @@
 #include "laserBeam.h"
 
-LaserBeam::LaserBeam(int isCenterCannon){
+LaserBeam::LaserBeam(int isCenterCannon, double damageIn){
     Vector3 tmp = Vector3(0.0, 0.0, LASER_LENGTH);
     length.set(tmp);
 
@@ -9,6 +9,7 @@ LaserBeam::LaserBeam(int isCenterCannon){
     velocity.normalize();
     velocity = velocity.multipliedby(speed);
 	centerCannon = isCenterCannon;
+    damage = damageIn;
 	laserRadius = 0.25;
 	if(centerCannon == 1){
 		laserRadius = 0.45;	

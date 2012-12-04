@@ -1,5 +1,5 @@
 static GLdouble timeInterval = 0.015; // Determines the time increments, value between 0 and 1
-static GLdouble rockSpawnRate = 0.1250; //0.350; //The amount of time between spawning rocks
+static GLdouble rockSpawnRate = 0.100; //0.350; //The amount of time between spawning rocks
 static GLdouble rockSpawnTimer = rockSpawnRate; //Counts until it is time to spawn another rock
 SoundEngine soundEngine = SoundEngine();
 static int start = 1;
@@ -37,10 +37,10 @@ void mySimulation(void){
                     rockSpawnTimer = rockSpawnRate;
                 }
                 else{
-                    GLdouble size = 5.0; //((rand() % 5) + 5) / 1.0;
+                    GLdouble size = 6.0; //((rand() % 5) + 5) / 1.0;
                     int startPosX = (rand() % (ROCK_X_MAX - ROCK_X_MIN)) + ROCK_X_MIN;
                     int startPosY = (rand() % (ROCK_Y_MAX - ROCK_Y_MIN)) + ROCK_Y_MIN;
-                    int startSpeed = -30; //-(rand() % 40) - 10;
+                    int startSpeed = -75; //-(rand() % 40) - 10;
 
                     rockSpawnTimer = 0.0;
 
@@ -55,13 +55,17 @@ void mySimulation(void){
                     rock->BoundingSphereRadius(size);
 
                     // Set its starting location
-                    initialLocation.set(Vector3(startPosX, startPosY, 250.0));
+                    initialLocation.set(Vector3(startPosX, startPosY, ASTEROID_SPAWN_PLANE));
                     //initialLocation.set(Vector3(0.0, 0.0, 50.0));
                     rock->Location(initialLocation);
                     rock->LinearAcceleration(Vector3(0.0, 0.0, 0.0));
                     rock->LinearVelocity(Vector3(0.0, 0.0, startSpeed));
                     rock->Rotation(0.0);
-                    rock->AngularVelocity(Vector3(1.00, 1.00, 1.00));
+                    rock->AngularVelocity(Vector3(
+                        (rand() % 100) * ((5.0 - 0.1) / 100.0) + 0.1,
+                        (rand() % 100) * ((5.0 - 0.1) / 100.0) + 0.1,
+                        (rand() % 100) * ((5.0 - 0.1) / 100.0) + 0.1
+                    ));
                     rocks.insert(rock);
                 }
             }
@@ -168,7 +172,7 @@ void mySimulation(void){
                         }
                     }
 
-                    if(((*it)->Location().minus((*it)->length)).z > FAR_PLANE){
+                    if(((*it)->Location().minus((*it)->length)).z > ASTEROID_SPAWN_PLANE){
                         if(DEBUG == 1){
                             cout << "Erasing Laser Beam: "<< (*it)->laserBeamNumber << endl;
                         }

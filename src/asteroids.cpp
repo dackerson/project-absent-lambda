@@ -21,6 +21,7 @@ int WINDOW_WIDTH = 800;
 const float VIEW_ANGLE = 25.0;
 const float NEAR_PLANE = 0.5f;
 const float FAR_PLANE = 1000.0f;
+const float ASTEROID_SPAWN_PLANE = 500.0;
 
 const float SHIP_PLANE_Z = 75.0;
 const float SHIP_GUN_Z = SHIP_PLANE_Z;
@@ -31,16 +32,16 @@ const float SHIP_WIDTH = 12.0;
 const float SHIP_LENGTH = 10.0;
 
 // For asteroid generation
-const int ROCK_X_MAX = 50;
-const int ROCK_X_MIN = -50;
-const int ROCK_Y_MAX = 50;
-const int ROCK_Y_MIN = -50;
+const int ROCK_X_MAX = 75;
+const int ROCK_X_MIN = -75;
+const int ROCK_Y_MAX = 75;
+const int ROCK_Y_MIN = -75;
 
 // For mouse movement
-const int X_MAX = ROCK_X_MAX;
-const int X_MIN = ROCK_X_MIN;
-const int Y_MAX = ROCK_Y_MAX;
-const int Y_MIN = ROCK_Y_MIN;
+const int X_MAX = ROCK_X_MAX - 15;
+const int X_MIN = ROCK_X_MIN + 20;
+const int Y_MAX = ROCK_Y_MAX - 20;
+const int Y_MIN = ROCK_Y_MIN + 15;
 
 const int MAX_ROCKS = 100;
 const double ROCK_DAMAGE = 5.0;

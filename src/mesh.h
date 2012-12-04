@@ -49,7 +49,7 @@ class Mesh{
 
         void makeSurfaceMesh();  // Make a surface mesh
         void makePrism(PolyLine P, float H);
-
+        void drawReticle();
         void makeShip(); //Creates the mesh for a Cretaceous class fighter
         void drawCylinder();
 

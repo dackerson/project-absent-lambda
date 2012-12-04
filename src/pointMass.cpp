@@ -1,7 +1,8 @@
 #include "assert.h"
 #include "pointMass.h"
 
-PointMass:: PointMass(){}
+PointMass:: PointMass(){
+}
 
 bool PointMass:: Update(GLdouble changeInTime){
     /* Begin calculating linear dynamics. These act at the 
