@@ -11,11 +11,6 @@ void myDisplay(void)
     glClearColor(0.0f, 0.0f, 0.0f, 0.0f);  // background is black
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-    Point3 shipLocation = cam.getEye();
-    Point3 eye(shipLocation.x, shipLocation.y, 0.0);
-    Point3 look(shipLocation.x, shipLocation.y, 1.0);
-    Vector3 up(0.0, 1.0, 0.0);
-
     char* scoreString = new char[50];
     sprintf(scoreString, "%d", ((int)PLAYER_SCORE));
 
@@ -63,7 +58,15 @@ void myDisplay(void)
             }
 
             cam.setShape(VIEW_ANGLE, (WINDOW_WIDTH * 1.0) / WINDOW_HEIGHT, NEAR_PLANE, FAR_PLANE);
-            cam.set(eye, look, up);
+
+            {
+                Point3 eye = cam.getEye();
+                Point3 newEye(eye.x, eye.y, 0.0);
+                Point3 look(eye.x, eye.y, 1.0);
+                Vector3 up(0.0, 1.0, 0.0);
+
+                cam.set(eye, look, up);
+            }
             
             glDisable(GL_COLOR_MATERIAL);
             glEnable(GL_TEXTURE_2D);

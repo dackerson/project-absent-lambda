@@ -24,6 +24,7 @@ const float FAR_PLANE = 1000.0f;
 
 const float SHIP_PLANE_Z = -75.0;
 const float SHIP_GUN_Z = SHIP_PLANE_Z;
+const float RETICLE_PLANE_Z = -150;
 
 const float SHIP_HEIGHT = 6.0;
 const float SHIP_WIDTH = 12.0;
@@ -36,10 +37,10 @@ const int ROCK_Y_MAX = 50;
 const int ROCK_Y_MIN = -50;
 
 // For mouse movement
-const int X_MAX = 25;
-const int X_MIN = -25;
-const int Y_MAX = 25;
-const int Y_MIN = -25;
+const int X_MAX = ROCK_X_MAX;
+const int X_MIN = ROCK_X_MIN;
+const int Y_MAX = ROCK_Y_MAX;
+const int Y_MIN = ROCK_Y_MIN;
 
 const int MAX_ROCKS = 100;
 const double ROCK_DAMAGE = 5.0;

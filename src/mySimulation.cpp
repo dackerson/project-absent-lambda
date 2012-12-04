@@ -1,5 +1,5 @@
 static GLdouble timeInterval = 0.015; // Determines the time increments, value between 0 and 1
-static GLdouble rockSpawnRate = 0.250; //0.350; //The amount of time between spawning rocks
+static GLdouble rockSpawnRate = 0.1250; //0.350; //The amount of time between spawning rocks
 static GLdouble rockSpawnTimer = rockSpawnRate; //Counts until it is time to spawn another rock
 SoundEngine soundEngine = SoundEngine();
 static int start = 1;
@@ -12,10 +12,22 @@ void mySimulation(void){
         case GAME_SCREEN:
             PLAYER_SCORE += 0.1;  
 
-            {
-                Point3 eye = cam.getEye();
-                Point3 ship = ship.Location();
+            if(0){
+                double factor = 0.9;
 
+                Point3 eye = cam.getEye();
+                Point3 shipLocation = ship.Location();
+                
+                Point3 newEye(
+                    (factor * eye.x) + ((1 - factor) * shipLocation.x),
+                    (factor * eye.y) + ((1 - factor) * shipLocation.y),
+                    0.0
+                );
+
+                Point3 look(shipLocation.x, shipLocation.y, -SHIP_PLANE_Z);
+                Vector3 up(0.0, 1.0, 0.0);
+
+                cam.set(newEye, look, up);
 
             }
             
