@@ -31,6 +31,8 @@ void initTexture(void)
         "../textures/plu0rss1.bmp",
         "../textures/plu1rss1.bmp",
         "../textures/sky.bmp",
+        "../textures/earth1.bmp",
+        "../textures/moonmercator.bmp",
         "\0"
     };
 

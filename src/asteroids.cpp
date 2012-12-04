@@ -59,6 +59,8 @@ const GLdouble LASER_LENGTH = 20.0;
 const GLdouble LASER_SPEED = 150.0;
 
 long LASER_BEAM_NUMBER = 0;
+bool EARTH = false;
+bool MOON = false;
 
 const GLfloat lightWhite_ambient[] = {1.0, 1.0, 1.0, 1.0f};
 const GLfloat lightWhite_diffuse[] = {1.0, 1.0, 1.0, 1.0f};

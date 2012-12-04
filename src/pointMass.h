@@ -47,6 +47,8 @@ class PointMass{
         GLdouble hitPoints;
 
         int texture;
+        int longitude;
+        int latitude;
         //Used to update the position of the ball according to its current
         // velocity and direction and the forces acting on it.
         bool Update(GLdouble changeInTime);
