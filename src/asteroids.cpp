@@ -45,6 +45,7 @@ const int Y_MIN = ROCK_Y_MIN + 15;
 
 const int MAX_ROCKS = 100;
 const double ROCK_DAMAGE = 5.0;
+const double ROCK_SCORE = 5.0;
 
 long ROCK_COUNT = 0;
 

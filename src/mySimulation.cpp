@@ -75,6 +75,7 @@ void mySimulation(void){
                     rock->rockNumber = ROCK_COUNT++;
                     rock->Mass(1);
                     rock->BoundingSphereRadius(size);
+                    rock->hitPointsInit();
 
                     // Set its starting location
                     initialLocation.set(Vector3(startPosX, startPosY, ASTEROID_SPAWN_PLANE));
@@ -89,8 +90,6 @@ void mySimulation(void){
                         (rand() % 100) * ((5.0 - 0.1) / 100.0) + 0.1
                     ));
                     rocks.insert(rock);
-                    rock->AngularVelocity(Vector3(1.00, 1.00, 1.00));
-                    rocks.insert(rock);                   
                 }
             }
 
@@ -188,8 +187,12 @@ void mySimulation(void){
                                 if(DEBUG == 1){
                                     cout << "Laser: " << (*it)->laserBeamNumber << " collides with rock: " << (*itRock)->rockNumber << endl;
                                 }
-                                soundEngine.playExplosionSound();
-                                rocks.erase(itRock);
+                                (*itRock)->hitPoints -= (*it)->Damage();
+                                if((*itRock)->hitPoints <= 0.0){
+                                    soundEngine.playExplosionSound();
+                                    rocks.erase(itRock);
+                                    PLAYER_SCORE += ROCK_SCORE * (*itRock)->BoundingSphereRadius();
+                                }
                                 beams.erase(it);
                                 break;
                             }

@@ -45,6 +45,7 @@ class PointMass{
         GLdouble Elasticity(void){return coefficientOfRestitution;}
 
         GLdouble hitPoints;
+        void hitPointsInit(){hitPoints = radius;}
 
         int texture;
         int longitude;
