@@ -101,7 +101,7 @@ void mySimulation(void){
                     float shipTop = shipCenterY + (SHIP_HEIGHT);
                     float shipBottom = shipCenterY;
 
-                    if((rockFront <= -SHIP_PLANE_Z + SHIP_LENGTH) && (rockBack > -SHIP_PLANE_Z)){
+                    if((rockFront <= SHIP_PLANE_Z + SHIP_LENGTH) && (rockBack > SHIP_PLANE_Z)){
                         if((rockLeft < shipRight) && (rockRight > shipLeft) && (shipTop > rockBottom) && (shipBottom < rockTop)){
                             if(DEBUG == 1){
                                 cout << "DAMAGE: Colision from Rock: " << (*it)->rockNumber << "!!!!!!!!" << endl;

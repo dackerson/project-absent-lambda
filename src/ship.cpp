@@ -8,12 +8,12 @@ Ship::Ship(){
     direction = Vector3(0.0, 0.0, 1.0);
 
     // Location of the ship's origin
-    origin = Point3(6.0, 0.0, SHIP_PLANE_Z);
+    origin = Point3(-6.0, 0.0, SHIP_PLANE_Z);
 	
     gunHeight = 5.0;
 	gunLeftXOffset = 5.0;
-	gunRightXOffset = -5.0;
 	gunLeftYOffset = 1.0;
+	gunRightXOffset = -5.0;
 	gunRightYOffset = 1.0;
 }
 
@@ -40,7 +40,7 @@ void Ship::fireLeftLaser(set<LaserBeam*>* beams){
 	beam->laserBeamNumber = LASER_BEAM_NUMBER++;
     beam->LocationX(location.x + gunLeftXOffset);
     beam->LocationY(location.y + gunLeftYOffset);
-    beam->LocationZ(-SHIP_GUN_Z - 1.0);
+    beam->LocationZ(SHIP_GUN_Z - 1.0);
 	soundEngineLaser.playLaserSound();
 
     beams->insert(beam);
@@ -54,7 +54,7 @@ void Ship::fireCenterLaser(set<LaserBeam*>* beams){
 	beam->laserBeamNumber = LASER_BEAM_NUMBER++;
     beam->LocationX(location.x);
     beam->LocationY(location.y + gunHeight);
-    beam->LocationZ(-SHIP_GUN_Z);
+    beam->LocationZ(SHIP_GUN_Z);
 	soundEngineLaser.playLaserSound();
 
     beams->insert(beam);
@@ -68,7 +68,7 @@ void Ship::fireRightLaser(set<LaserBeam*>* beams){
 	beam->laserBeamNumber = LASER_BEAM_NUMBER++;
     beam->LocationX(location.x + gunRightXOffset);
     beam->LocationY(location.y + gunRightYOffset);
-    beam->LocationZ(-SHIP_GUN_Z - 1.0);
+    beam->LocationZ(SHIP_GUN_Z - 1.0);
 	soundEngineLaser.playLaserSound();
 
     beams->insert(beam);
@@ -79,7 +79,7 @@ void Ship::Render(void){
 
     glTranslated(location.x, location.y, location.z);
 
-    glTranslated(-origin.x, -origin.y, -origin.z);
+    glTranslated(origin.x, origin.y, origin.z);
     glRotated(90, 1.0, 0.0, 0.0);
     glScaled(1.0, 1.0, -1.0);
 

@@ -14,8 +14,8 @@ class Ship{
 		Point3 origin;
         double gunHeight;
 		double gunLeftXOffset;
-		double gunRightXOffset;
 		double gunLeftYOffset;
+		double gunRightXOffset;
 		double gunRightYOffset;
 	public:
 		Ship();
