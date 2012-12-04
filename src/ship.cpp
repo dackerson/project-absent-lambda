@@ -40,7 +40,7 @@ void Ship::fireLeftLaser(set<LaserBeam*>* beams){
 	beam->laserBeamNumber = LASER_BEAM_NUMBER++;
     beam->LocationX(location.x + gunLeftXOffset);
     beam->LocationY(location.y + gunLeftYOffset);
-    beam->LocationZ(SHIP_GUN_Z - 1.0);
+    beam->LocationZ(SHIP_GUN_Z + 0.1);
 	soundEngineLaser.playLaserSound();
 
     beams->insert(beam);
@@ -54,7 +54,7 @@ void Ship::fireCenterLaser(set<LaserBeam*>* beams){
 	beam->laserBeamNumber = LASER_BEAM_NUMBER++;
     beam->LocationX(location.x);
     beam->LocationY(location.y + gunHeight);
-    beam->LocationZ(SHIP_GUN_Z);
+    beam->LocationZ(SHIP_GUN_Z + 0.1);
 	soundEngineLaser.playLaserSound();
 
     beams->insert(beam);
@@ -68,7 +68,7 @@ void Ship::fireRightLaser(set<LaserBeam*>* beams){
 	beam->laserBeamNumber = LASER_BEAM_NUMBER++;
     beam->LocationX(location.x + gunRightXOffset);
     beam->LocationY(location.y + gunRightYOffset);
-    beam->LocationZ(SHIP_GUN_Z - 1.0);
+    beam->LocationZ(SHIP_GUN_Z + 0.1);
 	soundEngineLaser.playLaserSound();
 
     beams->insert(beam);

@@ -25,9 +25,9 @@ void LaserBeam::Render(){
     //printf("(%f, %f, %f)\n", start.x, start.y, start.z);
     GLdouble zVal = start.z;
     GLdouble zLength = length.z;
-    if(zVal < SHIP_GUN_Z){
-        zVal = SHIP_GUN_Z;
-        zLength = length.z + (start.z - SHIP_GUN_Z);
+    if(zVal <= SHIP_GUN_Z){
+        zVal = SHIP_GUN_Z + 0.1;
+        zLength = length.z + (start.z - zVal);
     }
 
     glPushMatrix();
