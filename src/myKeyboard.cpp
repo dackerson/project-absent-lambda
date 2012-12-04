@@ -35,6 +35,10 @@ void myKeyboard(unsigned char key, int x, int y)
         case 'S': cam.pitch(-1); break; // pitch camera down
         case 'W': cam.pitch(1); break; //pitch camera up
 
+        case 27: //Escape key
+            glutLeaveGameMode();
+            exit(0);
+            break;
     }
     glutPostRedisplay(); //draw it again
 }

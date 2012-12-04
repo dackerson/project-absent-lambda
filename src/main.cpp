@@ -10,6 +10,9 @@ int main(int argc, char * argv[])
     glutInitWindowPosition(100, 100);
     glutCreateWindow("Asteroids!");
 
+    glutGameModeString("1920x1080:32");
+    glutEnterGameMode();
+
     // setup window callbacks
     glutKeyboardFunc(myKeyboard);
     glutMouseFunc(myMouse);

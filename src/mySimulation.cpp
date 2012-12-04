@@ -13,7 +13,7 @@ void mySimulation(void){
             PLAYER_SCORE += 0.1;  
 
             {
-                double factor = 0.8;
+                double factor = 0.91;
 
                 Point3 eye = cam.getEye();
                 Point3 reticle = ship.Reticle();
