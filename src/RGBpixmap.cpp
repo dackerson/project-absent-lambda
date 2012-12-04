@@ -20,10 +20,10 @@ void initTexture(void)
 
     string images[] = {
         "../textures/shiphull.bmp",
+        "../textures/logoNose.bmp",
         "../textures/logoTail.bmp",
-        "../textures/logoTail.bmp",
+        "../textures/barrel.bmp",
         "../textures/gunmouth.bmp",
-        "../textures/shipengine.bmp",
         "../textures/shipengine.bmp",
         "../textures/jup2vuu2.bmp",
         "../textures/mar1kuu2.bmp",
