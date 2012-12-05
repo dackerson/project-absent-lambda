@@ -135,25 +135,32 @@ void mySimulation(void){
                     float shipTop = shipCenterY + (SHIP_HEIGHT);
                     float shipBottom = shipCenterY;
 
+					//Check if the rock is within the ships length for colision detection
                     if((rockFront <= SHIP_PLANE_Z + SHIP_LENGTH) && (rockBack > SHIP_PLANE_Z)){
+						//Checks collision detection conditions
                         if((rockLeft < shipRight) && (rockRight > shipLeft) && (shipTop > rockBottom) && (shipBottom < rockTop)){
                             if(DEBUG == 1){
                                 cout << "DAMAGE: Colision from Rock: " << (*it)->rockNumber << "!!!!!!!!" << endl;
                             }
+							//Decrease Health proportionaly to the size of the rock
                             int isDead = ship.dropHealth(rockBoundingSphereRadius * ROCK_DAMAGE);
                             if(isDead){
+								//If your health is zero or below then display the game over screen
                                 gameState = GAME_OVER_SCREEN;
                             }
-
+							//Play explosion sound
                             soundEngine.playExplosionSound();
+							//Erase the rock that was colided with
                             rocks.erase(it);
                         }
                     }
 
+					//If the rocks are behind the camera commence removing them
                     if((*it)->Location().z < 2){
                         if(DEBUG == 1){
                             cout << "Erasing Rock: " << (*it)->rockNumber << endl;
                         }
+						//Erase the rocks that are out of view
                         rocks.erase(it);
                     }
                 }
@@ -192,17 +199,25 @@ void mySimulation(void){
                         float laserTop = (laserCenterY) + (laserRadius);
                         float laserBottom = (laserCenterY) - (laserRadius);
 
+						//Check colision conditions between lasers and rocks
                         if((laserBack > rockFront) && (laserFront < rockBack)){
                             if((rockLeft < laserRight) && (rockRight > laserLeft) && (laserTop > rockBottom) && (laserBottom < rockTop)){
                                 if(DEBUG == 1){
                                     cout << "Laser: " << (*it)->laserBeamNumber << " collides with rock: " << (*itRock)->rockNumber << endl;
                                 }
+								//Remove rock health on a hit proportinaly to the laser strength
                                 (*itRock)->hitPoints -= (*it)->Damage();
+				
+								//Remove the rock if it's health is zero or below
                                 if((*itRock)->hitPoints <= 0.0){
+									//Play the explosion sound
                                     soundEngine.playExplosionSound();
+									//Erase the rock
                                     rocks.erase(itRock);
+									//Increase the score by the value of the rock destroyed
                                     PLAYER_SCORE += ROCK_SCORE * (*itRock)->BoundingSphereRadius();
                                 }
+								//Remove lasers that have colided with something
                                 beams.erase(it);
                             break;
                             }
@@ -213,11 +228,11 @@ void mySimulation(void){
                         if(DEBUG == 1){
                             cout << "Erasing Laser Beam: "<< (*it)->laserBeamNumber << endl;
                         }
+						//Remove lasers that have traveled beyond the rock spawn location
                         beams.erase(it);
                     }
                 }
             }
-
             break;
     }
 
