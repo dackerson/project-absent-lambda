@@ -12,7 +12,7 @@
 using namespace irrklang;
 #pragma comment(lib, "irrKlang.lib") // link with irrKlang.dll
 
-const int DEBUG = 0;
+const int DEBUG = 0;//Flag for enabling debug statements (0 -> debug off; 1 -> debug on)
 
 const GLdouble PI = 4*atan(1);
 int windowWidth = 0;
