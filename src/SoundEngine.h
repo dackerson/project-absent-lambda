@@ -11,9 +11,9 @@ class SoundEngine{
 		ISoundEngine* laserSoundEngine;
 
 	public:
-		SoundEngine();
-		void startBackgroundTrack();
-		void playLaserSound();
-		void playExplosionSound();
-		void dropSoundEngine();
+		SoundEngine();//Empty constructor
+		void startBackgroundTrack();//Starts the background music via the IrrKlang engine
+		void playLaserSound();//Plays the laser sound
+		void playExplosionSound();//Plays the explosion sound
+		void dropSoundEngine();//Remove objects when / if we are done with them
 };
