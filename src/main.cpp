@@ -11,7 +11,7 @@ int main(int argc, char * argv[])
     glutCreateWindow("Asteroids!");
 
     // Get screen resolution and enter game mode
-    char* gameModeString;
+    char* gameModeString = new char[20];
     sprintf(gameModeString, "%dx%d:32", glutGet(GLUT_SCREEN_WIDTH), glutGet(GLUT_SCREEN_HEIGHT));
 
     glutGameModeString(gameModeString);
