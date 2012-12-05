@@ -10,7 +10,11 @@ int main(int argc, char * argv[])
     glutInitWindowPosition(100, 100);
     glutCreateWindow("Asteroids!");
 
-    glutGameModeString("1920x1080:32");
+    // Get screen resolution and enter game mode
+    char* gameModeString;
+    sprintf(gameModeString, "%dx%d:32", glutGet(GLUT_SCREEN_WIDTH), glutGet(GLUT_SCREEN_HEIGHT));
+
+    glutGameModeString(gameModeString);
     glutEnterGameMode();
 
     // setup window callbacks

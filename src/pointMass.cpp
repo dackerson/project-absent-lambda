@@ -3,7 +3,6 @@
 
 //TODO: Initialize radius before setting hitPoints
 PointMass:: PointMass(){
-    hitPoints = radius;
 }
 
 bool PointMass:: Update(GLdouble changeInTime){
