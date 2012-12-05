@@ -33,7 +33,7 @@ void Ship::setLocation(Camera cam, int x, int y){
 }
 
 void Ship::fireLeftLaser(set<LaserBeam*>* beams){
-    LaserBeam* beam = new LaserBeam(0, 0.1);
+    LaserBeam* beam = new LaserBeam(0, 2.0);
 	if(DEBUG == 1){
 		cout << "Creating Laser Beam: " << LASER_BEAM_NUMBER << endl;
 	}
