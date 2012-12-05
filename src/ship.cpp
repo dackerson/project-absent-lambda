@@ -32,6 +32,7 @@ void Ship::setLocation(Camera cam, int x, int y){
     */
 }
 
+//Fires the left ship laser
 void Ship::fireLeftLaser(set<LaserBeam*>* beams){
     LaserBeam* beam = new LaserBeam(0, 2.0);
 	if(DEBUG == 1){
@@ -46,6 +47,7 @@ void Ship::fireLeftLaser(set<LaserBeam*>* beams){
     beams->insert(beam);
 }
 
+//Fires the center ship laser
 void Ship::fireCenterLaser(set<LaserBeam*>* beams){
     LaserBeam* beam = new LaserBeam(1, 3.0);
 	if(DEBUG == 1){
@@ -60,6 +62,7 @@ void Ship::fireCenterLaser(set<LaserBeam*>* beams){
     beams->insert(beam);
 }
 
+//Fires the right ship laser
 void Ship::fireRightLaser(set<LaserBeam*>* beams){
     LaserBeam* beam = new LaserBeam(0, 2.0);
 	if(DEBUG == 1){

@@ -40,9 +40,9 @@ class Ship{
         void ReticleY(GLdouble y){reticle.y = y;}
         void ReticleZ(GLdouble z){reticle.z = z;}
         Point3 Reticle(void){return reticle;}
-        void fireLeftLaser(set<LaserBeam*>* beam);
-		void fireCenterLaser(set<LaserBeam*>* beam);
-		void fireRightLaser(set<LaserBeam*>* beam);
+        void fireLeftLaser(set<LaserBeam*>* beam);//Fires the left ship laser
+		void fireCenterLaser(set<LaserBeam*>* beam);//Fires the center ship laser
+		void fireRightLaser(set<LaserBeam*>* beam);//Fires the right ship laser
 		void Render(void);
 };
 			
