@@ -1,8 +1,9 @@
 #include "assert.h"
 #include "pointMass.h"
 
+//TODO: Initialize radius before setting hitPoints
 PointMass:: PointMass(){
-    hitPoints = size;
+    hitPoints = radius;
 }
 
 bool PointMass:: Update(GLdouble changeInTime){

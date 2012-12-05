@@ -89,8 +89,6 @@ void mySimulation(void){
                         (rand() % 100) * ((5.0 - 0.1) / 100.0) + 0.1
                     ));
                     rocks.insert(rock);
-                    rock->AngularVelocity(Vector3(1.00, 1.00, 1.00));
-                    rocks.insert(rock);                   
                 }
             }
 
@@ -188,10 +186,14 @@ void mySimulation(void){
                                 if(DEBUG == 1){
                                     cout << "Laser: " << (*it)->laserBeamNumber << " collides with rock: " << (*itRock)->rockNumber << endl;
                                 }
-                                soundEngine.playExplosionSound();
-                                rocks.erase(itRock);
+                                (*itRock)->hitPoints -= (*it)->Damage();
+                                //printf("Hit points of rock: %f", (*itRock)->hitPoints);
+                                if((*itRock)->hitPoints <= 0.0){
+                                    soundEngine.playExplosionSound();
+                                    rocks.erase(itRock);
+                                }
                                 beams.erase(it);
-                                break;
+                            break;
                             }
                         }
                     }
