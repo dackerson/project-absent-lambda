@@ -204,7 +204,7 @@ void mySimulation(void){
                                     PLAYER_SCORE += ROCK_SCORE * (*itRock)->BoundingSphereRadius();
                                 }
                                 beams.erase(it);
-                                break;
+                            break;
                             }
                         }
                     }
