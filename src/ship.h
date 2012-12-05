@@ -20,7 +20,15 @@ class Ship{
 	public:
 		Ship();
         double Health(){return health;}
-        void dropHealth(double val){health -= val;}
+        int dropHealth(double val){
+            health -= val;
+            if(health <= 0.0){
+                return 1;
+            }
+            else{
+                return 0;
+            }
+        }
 		void Location(Point3 locationIn){location = locationIn;}
 		void LocationX(GLdouble x){location.x = x;}
 		void LocationY(GLdouble y){location.y = y;}

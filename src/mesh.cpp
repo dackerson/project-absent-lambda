@@ -228,7 +228,25 @@ void Mesh:: drawCylinder(){
     draw();
 }
 
-void Mesh::drawReticle(){}
+void Mesh::drawReticle(){
+    glDisable(GL_TEXTURE_2D);
+    glEnable(GL_COLOR_MATERIAL);
+
+    glLightfv(GL_LIGHT0, GL_AMBIENT, lightWhite_ambient);
+    glLightfv(GL_LIGHT0, GL_DIFFUSE, lightWhite_diffuse);
+    glLightfv(GL_LIGHT0, GL_SPECULAR, lightWhite_specular);
+
+    glBegin(GL_LINE_LOOP); 
+        int N = 30;
+        for(int i = 0; i < N; i++){
+            glVertex3d(cos(2*PI*i/N), sin(2*PI*i/N), 0);
+        }
+    glEnd();
+
+    glDisable(GL_COLOR_MATERIAL);
+    glEnable(GL_TEXTURE_2D);
+        
+}
 
 Vector3 Mesh :: newell4(int indx[])
 { /* return the normalized normal to face with vertices

@@ -15,8 +15,8 @@ using namespace irrklang;
 const int DEBUG = 0;
 
 const GLdouble PI = 4*atan(1);
-int WINDOW_HEIGHT = 600;
-int WINDOW_WIDTH = 800;
+int windowWidth = 640;
+int windowHeight = 480;
 
 const float VIEW_ANGLE = 25.0;
 const float NEAR_PLANE = 0.5f;
@@ -25,23 +25,23 @@ const float ASTEROID_SPAWN_PLANE = 500.0;
 
 const float SHIP_PLANE_Z = 75.0;
 const float SHIP_GUN_Z = SHIP_PLANE_Z;
-const float RETICLE_PLANE_Z = SHIP_PLANE_Z + 10;
+const float RETICLE_PLANE_Z = SHIP_PLANE_Z + 30;
 
 const float SHIP_HEIGHT = 6.0;
 const float SHIP_WIDTH = 12.0;
 const float SHIP_LENGTH = 10.0;
 
 // For asteroid generation
-const int ROCK_X_MAX = 75;
-const int ROCK_X_MIN = -75;
-const int ROCK_Y_MAX = 75;
-const int ROCK_Y_MIN = -75;
+const int ROCK_X_MAX = 100;
+const int ROCK_X_MIN = -100;
+const int ROCK_Y_MAX = 100;
+const int ROCK_Y_MIN = -100;
 
 // For mouse movement
-const int X_MAX = ROCK_X_MAX - 15;
-const int X_MIN = ROCK_X_MIN + 20;
-const int Y_MAX = ROCK_Y_MAX - 20;
-const int Y_MIN = ROCK_Y_MIN + 15;
+const int X_MAX = ROCK_X_MAX - 25;
+const int X_MIN = ROCK_X_MIN + 25;
+const int Y_MAX = ROCK_Y_MAX - 25;
+const int Y_MIN = ROCK_Y_MIN + 25;
 
 const int MAX_ROCKS = 100;
 const double ROCK_DAMAGE = 5.0;
@@ -54,7 +54,7 @@ double PLAYER_SCORE = 0.0;
 
 enum{ TITLE_SCREEN, GAME_SCREEN, GAME_OVER_SCREEN };
 
-int gameState = GAME_SCREEN;
+int gameState = GAME_OVER_SCREEN;
 
 const GLdouble LASER_LENGTH = 20.0;
 const GLdouble LASER_SPEED = 150.0;

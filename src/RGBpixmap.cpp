@@ -33,6 +33,7 @@ void initTexture(void)
         "../textures/sky.bmp",
         "../textures/earth1.bmp",
         "../textures/moonmercator.bmp",
+        "../textures/gameOver.bmp",
         "\0"
     };
 

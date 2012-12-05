@@ -1,8 +1,7 @@
 #include "laserBeam.h"
 
 LaserBeam::LaserBeam(int isCenterCannon, double damageIn){
-    Vector3 tmp = Vector3(0.0, 0.0, LASER_LENGTH);
-    length.set(tmp);
+    length.set(Vector3(0.0, 0.0, LASER_LENGTH));
 
     GLdouble speed = LASER_SPEED;
     velocity.set(length);

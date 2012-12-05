@@ -9,6 +9,8 @@ void mySimulation(void){
     rockSpawnTimer += timeInterval;
 
     switch(gameState){
+        case GAME_OVER_SCREEN:
+            break;
         case GAME_SCREEN:
             PLAYER_SCORE += 0.1;  
 
@@ -40,7 +42,7 @@ void mySimulation(void){
                     GLdouble size;
                     int startPosX = (rand() % (ROCK_X_MAX - ROCK_X_MIN)) + ROCK_X_MIN;
                     int startPosY = (rand() % (ROCK_Y_MAX - ROCK_Y_MIN)) + ROCK_Y_MIN;
-                    int startSpeed = -75; //-(rand() % 40) - 10;
+                    int startSpeed = -200; //-(rand() % 40) - 10;
 
                     rockSpawnTimer = 0.0;
 
@@ -134,7 +136,11 @@ void mySimulation(void){
                             if(DEBUG == 1){
                                 cout << "DAMAGE: Colision from Rock: " << (*it)->rockNumber << "!!!!!!!!" << endl;
                             }
-                            ship.dropHealth(rockBoundingSphereRadius * ROCK_DAMAGE);
+                            int isDead = ship.dropHealth(rockBoundingSphereRadius * ROCK_DAMAGE);
+                            if(isDead){
+                                gameState = GAME_OVER_SCREEN;
+                            }
+
                             soundEngine.playExplosionSound();
                             rocks.erase(it);
                         }

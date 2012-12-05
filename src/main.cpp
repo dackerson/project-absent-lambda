@@ -6,13 +6,19 @@ int main(int argc, char * argv[])
     // initialize GLUT
     glutInit( &argc, argv );
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH);
-    glutInitWindowSize(WINDOW_WIDTH,WINDOW_HEIGHT);
-    glutInitWindowPosition(100, 100);
-    glutCreateWindow("Asteroids!");
+    //glutInitWindowSize(windowWidth,windowHeight);
+    //glutInitWindowPosition(100, 100);
+    //glutCreateWindow("Asteroids!");
 
     // Get screen resolution and enter game mode
-    char* gameModeString;
-    sprintf(gameModeString, "%dx%d:32", glutGet(GLUT_SCREEN_WIDTH), glutGet(GLUT_SCREEN_HEIGHT));
+
+    char* gameModeString = new char[13];
+    if(windowWidth == 0 || windowHeight == 0){
+        windowWidth = glutGet(GLUT_SCREEN_WIDTH);
+        windowHeight = glutGet(GLUT_SCREEN_HEIGHT);
+    }
+
+    sprintf(gameModeString, "%dx%d:32", windowWidth, windowHeight);
 
     glutGameModeString(gameModeString);
     glutEnterGameMode();
@@ -37,12 +43,12 @@ int main(int argc, char * argv[])
     myInit();
 
     //Set up the viewport and initial camera
-    glViewport(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
+    glViewport(0, 0, windowWidth, windowHeight);
     Point3 eye(0.0, 0.0, 0.0); 
     Point3 look(0.0, 0.0, 1.0); 
     Vector3 up(0.0, 1.0, 0.0);
     cam.set(eye, look, up); // make the initial camera
-    cam.setShape(VIEW_ANGLE, (WINDOW_WIDTH * 1.0) / WINDOW_HEIGHT, NEAR_PLANE, FAR_PLANE);
+    cam.setShape(VIEW_ANGLE, (windowWidth * 1.0) / windowHeight, NEAR_PLANE, FAR_PLANE);
 
     initTexture();
     //enter main loop

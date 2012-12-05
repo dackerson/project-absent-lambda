@@ -16,6 +16,15 @@ void myDisplay(void)
 
     switch(gameState){
         case GAME_OVER_SCREEN:
+            glBindTexture(GL_TEXTURE_2D,2015);
+            glBegin(GL_QUADS);
+            glTexCoord2f(0.0, 0.0); glVertex3f(1.0, -0.5, 5.0);
+            glTexCoord2f(0.0, 1.0); glVertex3f(1.0, 0.5, 5.0);
+            glTexCoord2f(1.0, 1.0); glVertex3f(-1.0, 0.5, 5.0);
+            glTexCoord2f(1.0, 0.0); glVertex3f(-1.0, -0.5, 5.0);
+            glEnd();
+                       
+            
         case GAME_SCREEN:
             {
                 set<PointMass*>::iterator it;
@@ -57,7 +66,7 @@ void myDisplay(void)
                 glRasterPos2d((0.4*i)/1000.0, 0.9);
             }
 
-            cam.setShape(VIEW_ANGLE, (WINDOW_WIDTH * 1.0) / WINDOW_HEIGHT, NEAR_PLANE, FAR_PLANE);
+            cam.setShape(VIEW_ANGLE, (windowWidth * 1.0) / windowHeight, NEAR_PLANE, FAR_PLANE);
 
             {
                 Point3 eye = cam.getEye();
