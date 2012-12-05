@@ -54,7 +54,7 @@ double PLAYER_SCORE = 0.0;
 
 enum{ TITLE_SCREEN, GAME_SCREEN, GAME_OVER_SCREEN };
 
-int gameState = GAME_OVER_SCREEN;
+int gameState = GAME_SCREEN;
 
 const GLdouble LASER_LENGTH = 20.0;
 const GLdouble LASER_SPEED = 150.0;
