@@ -10,15 +10,17 @@ void myKeyboard(unsigned char key, int x, int y)
     {
         // slide controls for camera
 		case ' '://Fire Everything!!!!!!! (Can Hold it Down)
-			if(alternate == 0){
-				ship.fireLeftLaser(&beams); 
-				ship.fireRightLaser(&beams); 
-				alternate++;
-			}
-			else{
-				ship.fireCenterLaser(&beams); 
-				alternate = 0;
-			}
+            if(DEBUG == 1){
+                if(alternate == 0){
+                    ship.fireLeftLaser(&beams); 
+                    ship.fireRightLaser(&beams); 
+                    alternate++;
+                }
+                else{
+                    ship.fireCenterLaser(&beams); 
+                    alternate = 0;
+                }
+            }
 			break;
 
         case 'w': cam.slide(0,0,-moveSpeed); break; // slide camera forward
