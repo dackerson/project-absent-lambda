@@ -14,15 +14,23 @@ void myDisplay(void)
     char* scoreString = new char[50];
     sprintf(scoreString, "%d", ((int)PLAYER_SCORE));
 
+
     switch(gameState){
         case GAME_OVER_SCREEN:
-            glBindTexture(GL_TEXTURE_2D,2015);
-            glBegin(GL_QUADS);
-            glTexCoord2f(0.0, 0.0); glVertex3f(1.0, -0.5, 5.0);
-            glTexCoord2f(0.0, 1.0); glVertex3f(1.0, 0.5, 5.0);
-            glTexCoord2f(1.0, 1.0); glVertex3f(-1.0, 0.5, 5.0);
-            glTexCoord2f(1.0, 0.0); glVertex3f(-1.0, -0.5, 5.0);
-            glEnd();
+            glEnable(GL_TEXTURE_2D);
+
+            {
+                Point3 eye = cam.getEye();
+
+                glBindTexture(GL_TEXTURE_2D,2016);
+                glBegin(GL_QUADS);
+                glTexCoord2f(0.0, 0.0); glVertex3f(eye.x + 2.0, eye.y - 1.5, 5.0);
+                glTexCoord2f(0.0, 1.0); glVertex3f(eye.x + 2.0, eye.y + 1.5, 5.0);
+                glTexCoord2f(1.0, 1.0); glVertex3f(eye.x - 2.0, eye.y + 1.5, 5.0);
+                glTexCoord2f(1.0, 0.0); glVertex3f(eye.x - 2.0, eye.y - 1.5, 5.0);
+                glEnd();
+            }
+            break;
                        
             
         case GAME_SCREEN:

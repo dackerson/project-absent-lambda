@@ -15,8 +15,8 @@ using namespace irrklang;
 const int DEBUG = 0;
 
 const GLdouble PI = 4*atan(1);
-int windowWidth = 640;
-int windowHeight = 480;
+int windowWidth = 0;
+int windowHeight = 0;
 
 const float VIEW_ANGLE = 25.0;
 const float NEAR_PLANE = 0.5f;
@@ -44,7 +44,7 @@ const int Y_MAX = ROCK_Y_MAX - 25;
 const int Y_MIN = ROCK_Y_MIN + 25;
 
 const int MAX_ROCKS = 100;
-const double ROCK_DAMAGE = 5.0;
+const double ROCK_DAMAGE = 20.0;
 const double ROCK_SCORE = 5.0;
 
 long ROCK_COUNT = 0;

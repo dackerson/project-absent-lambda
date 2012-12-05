@@ -1,6 +1,6 @@
 #include "RGBpixmap.h"
 //######################## GLOBALS ########################
-RGBpixmap pix[16];    // make six (empty) pixmaps
+RGBpixmap pix[32];    // make six (empty) pixmaps
 float xSpeed = 2.0, ySpeed = 2.0,  xAngle = 0.0, yAngle = 0.0;
 GLUquadricObj *qobj;
 //<<<<<<<<<<<<<<<<<<<<<<<<<<< initTexture >>>>>>>>>>>>>>>>>>>>>>>>>>>.
@@ -34,6 +34,7 @@ void initTexture(void)
         "../textures/earth1.bmp",
         "../textures/moonmercator.bmp",
         "../textures/gameOver.bmp",
+        "../textures/bluescreen.bmp",
         "\0"
     };
 

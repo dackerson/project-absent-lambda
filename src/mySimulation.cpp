@@ -55,6 +55,8 @@ void mySimulation(void){
                     if (EARTH==false && PLAYER_SCORE >= 1200){//Earth boss
                         EARTH=true;                        
                         size = 75.0;                       
+                        startPosX = 0.0;
+                        startPosY = 0.0;
                         rock->texture = (5); 
                         rock->longitude = 50;
                         rock->latitude = 50;                           
@@ -62,6 +64,8 @@ void mySimulation(void){
                     else if (MOON==false && PLAYER_SCORE >= 1000){//Moon boss
                         MOON=true;
                         size = 25.0;
+                        startPosX = 0.0;
+                        startPosY = 0.0;
                         rock->texture = (6);  
                         rock->longitude = 50;
                         rock->latitude = 50;            
