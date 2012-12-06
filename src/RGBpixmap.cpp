@@ -1,5 +1,6 @@
 #include "RGBpixmap.h"
 //######################## GLOBALS ########################
+//Increase this if you need more than 32 textures
 RGBpixmap pix[32];    // make six (empty) pixmaps
 float xSpeed = 2.0, ySpeed = 2.0,  xAngle = 0.0, yAngle = 0.0;
 GLUquadricObj *qobj;

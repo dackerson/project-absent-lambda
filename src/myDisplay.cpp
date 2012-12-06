@@ -30,7 +30,6 @@ void myDisplay(void)
                 glTexCoord2f(1.0, 0.0); glVertex3f(eye.x - 2.0, eye.y - 1.5, 5.0);
                 glEnd();
             }
-            break;
                        
             
         case GAME_SCREEN:
