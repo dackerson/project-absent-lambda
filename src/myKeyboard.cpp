@@ -20,7 +20,7 @@ void myKeyboard(unsigned char key, int x, int y)
                 }
             }
 			break;
-        case 27: //Escape key
+        case 27: //Escape key to close the game
             glutLeaveGameMode();
             exit(0);
             break;

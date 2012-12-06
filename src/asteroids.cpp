@@ -4,13 +4,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdio.h>
-#include "../include/irrKlang.h"
-#include "../common/conio.h"
+#include "../include/irrKlang.h"//irrKlang Sound Engine
+#include "../common/conio.h"//irrKlang Sound Engine
 #include <time.h>
 #include <math.h>
 #include <set>
-using namespace irrklang;
-#pragma comment(lib, "irrKlang.lib") // link with irrKlang.dll
+using namespace irrklang;//irrKlang Sound Engine
+#pragma comment(lib, "irrKlang.lib") // link with irrKlang libraries
 
 const int DEBUG = 0;//Flag for enabling debug statements (0 -> debug off; 1 -> debug on)
 
