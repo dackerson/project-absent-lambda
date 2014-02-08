@@ -26,6 +26,6 @@ When the Game Over screen comes up, press the “Esc” key to exit. The “Esc�
 program at any time.
 
 Authors:
-  David Ackerson
-  Aaron Graham
+  David Ackerson,
+  Aaron Graham,
   Brian Hanson
