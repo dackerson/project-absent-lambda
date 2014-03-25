@@ -1,4 +1,4 @@
-project-absent-lambda
+project-absent-lambda (AKA Dinosaurs vs. Asteroids)
 =====================
 
 A project for my computer graphics course
